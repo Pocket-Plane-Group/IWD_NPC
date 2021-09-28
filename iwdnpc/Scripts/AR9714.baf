@@ -1,0 +1,32 @@
+// Anauroch Castle, Watchknight Tomb
+IF
+Global("O#PCSevern10","GLOBAL",0)
+InParty("O#Severn")
+PartyHasItem("KEYSILV")
+THEN
+RESPONSE #100
+SetGlobal("O#PCSevern10","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirTeri9","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Teri")
+PartyHasItem("KEYELEC")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirTeri9","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinNella9","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Nella")
+GlobalGT("Master_Quest","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinNella9","GLOBAL",1)
+Continue()
+END

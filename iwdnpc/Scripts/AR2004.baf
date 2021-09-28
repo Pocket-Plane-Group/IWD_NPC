@@ -1,0 +1,9 @@
+// Kuldahar pass: mill
+IF
+Global("O#PCSevern1","GLOBAL",0)
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#PCSevern1","GLOBAL",1)
+Continue()
+END

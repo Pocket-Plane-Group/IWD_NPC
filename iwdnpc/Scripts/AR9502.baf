@@ -1,0 +1,20 @@
+// Gloomfrost interior, second level
+IF
+Global("O#NPCKorinSevern10","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinSevern10","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCNella14","GLOBAL",0)
+InParty("O#Nella")
+GlobalGT("SCANMTR7_TRIGGERED","GLOBAL",0) 
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella14","GLOBAL",1)
+Continue()
+END

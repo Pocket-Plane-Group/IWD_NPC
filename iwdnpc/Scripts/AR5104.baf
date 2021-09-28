@@ -1,0 +1,20 @@
+// Severed Hand, mage towerlet, first floor
+IF
+Global("O#NPCKorinSevern4","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinSevern4","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCKorin8","GLOBAL",0)
+InParty("O#Korin")
+PartyHasItem("BOOKEVA")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin8","GLOBAL",1)
+Continue()
+END

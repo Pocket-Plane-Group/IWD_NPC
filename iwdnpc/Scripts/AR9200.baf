@@ -1,0 +1,11 @@
+// Barbarian camp
+IF
+Global("O#NPCHolvirSevern11","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Severn")
+Dead("SEER")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirSevern11","GLOBAL",1)
+Continue()
+END

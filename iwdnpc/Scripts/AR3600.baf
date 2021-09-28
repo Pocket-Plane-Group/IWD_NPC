@@ -1,0 +1,10 @@
+// The Temple of the Forgotten God, exterior
+IF 
+Global("O#PCHolvir3","GLOBAL",0)
+GlobalGT("Heartstone_Stolen","GLOBAL",0)
+InParty("O#Holvir")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir3","GLOBAL",1)
+Continue()
+END

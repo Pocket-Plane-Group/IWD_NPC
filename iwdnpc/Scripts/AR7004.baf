@@ -1,0 +1,31 @@
+// Wyrm's Tooth Glacier, frost giant cave
+IF
+Global("O#NPCNellaTeri7","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaTeri7","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirSevern7","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Severn")
+PartyHasItem("JORIL")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirSevern7","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCKorin10","GLOBAL",0)
+InParty("O#Korin")
+Dead("Kontik")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin10","GLOBAL",1)
+Continue()
+END

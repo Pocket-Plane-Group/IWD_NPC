@@ -1,0 +1,58 @@
+// Lower Dorn's Deep, Brother Perdiem
+IF
+Global("O#PCHolvir12","GLOBAL",0)
+InParty("O#Holvir")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir12","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCwithoutK1","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Nella")
+InParty("O#Severn")
+InParty("O#Teri")
+PartyHasItem("PERDIEM")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCwithoutK1","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#AllDialogue2","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+InParty("O#Nella")
+InParty("O#Severn")
+InParty("O#Teri")
+GlobalGT("ALL_KEYS","GLOBAL",5)
+THEN
+RESPONSE #100
+SetGlobal("O#AllDialogue2","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCKorin13","GLOBAL",0)
+InParty("O#Korin")
+GlobalGT("ALL_KEYS","GLOBAL",5)
+Global("O#KorinMatch","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin13","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCTeri11","GLOBAL",0)
+InParty("O#Teri")
+GlobalGT("ALL_KEYS","GLOBAL",5)
+Global("O#TeriMatch","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri11","GLOBAL",1)
+Continue()
+END

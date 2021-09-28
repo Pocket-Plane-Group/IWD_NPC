@@ -1,0 +1,20 @@
+// Temple of the Forgotten God, first level
+IF
+Global("O#PCTeri2","GLOBAL",0)
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri2","GLOBAL",1)
+Continue()
+END
+
+IF 
+Global("O#NPCKorinTeri3","GLOBAL",0)
+GlobalGT("Heartstone_Stolen","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri3","GLOBAL",1)
+Continue()
+END

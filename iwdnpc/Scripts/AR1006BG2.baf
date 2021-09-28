@@ -1,0 +1,45 @@
+// Easthaven tavern
+IF
+Global("O#NellaSpawnEasthaven","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Nella",[470.485],0)
+SetGlobal("O#NellaSpawnEasthaven","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#KorinSpawnEasthaven","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Korin",[534.490],0)
+SetGlobal("O#KorinSpawnEasthaven","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#TeriSpawnEasthaven","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Teri",[531.404],0)
+SetGlobal("O#TeriSpawnEasthaven","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#SevernSpawnEasthaven","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Severn",[500.400],0)
+SetGlobal("O#SevernSpawnEasthaven","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#HolvirSpawnEasthaven","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Holvir",[455.410],0)
+SetGlobal("O#HolvirSpawnEasthaven","GLOBAL",1)
+Continue()
+END

@@ -1,0 +1,42 @@
+// Tales of the Luremaster
+
+// AR9705 (Anauroch Castle, northeast tower basement, courage test), PartyHasItem("TALE1")
+IF
+InParty(Myself)
+Global("O#PCKorin16","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// AR9714 (Anauroch Castle, Watchknight Tomb), GlobalGT("Master_Quest","GLOBAL",2)
+IF
+InParty(Myself)
+Global("O#NPCKorinNella9","GLOBAL",1)
+InParty("O#Nella")
+Detect("O#Nella")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Nella")
+END
+
+// AR9801 (Anauroch Castle, dungeon level 5)
+IF
+InParty(Myself)
+Global("O#NPCHolvirKorin10","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Holvir")
+END

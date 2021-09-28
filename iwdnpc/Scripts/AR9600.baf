@@ -1,0 +1,20 @@
+// Sea of Moving Ice
+IF
+Global("O#PCHolvir17","GLOBAL",0)
+InParty("O#Holvir")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir17","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinTeri11","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+GlobalGT("GOLEM_HOSTILE","MYAREA",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri11","GLOBAL",1)
+Continue()
+END

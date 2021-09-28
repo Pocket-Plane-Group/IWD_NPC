@@ -1,0 +1,9 @@
+// Severed Hand, mage towerlet, the library
+IF
+Global("O#PCHolvir7","GLOBAL",0)
+InParty("O#Holvir")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir7","GLOBAL",1)
+Continue()
+END

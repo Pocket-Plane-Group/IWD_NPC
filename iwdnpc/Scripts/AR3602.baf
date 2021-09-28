@@ -1,0 +1,10 @@
+// Temple of the Forgotten God, second level
+IF
+Global("O#NPCNellaSevern2","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaSevern2","GLOBAL",1)
+Continue()
+END

@@ -1,0 +1,10 @@
+// Dorn's Deep, ettin cave
+IF
+Global("O#PCHolvir8","GLOBAL",0)
+InParty("O#Holvir")
+PartyHasItem("razor")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir8","GLOBAL",1)
+Continue()
+END

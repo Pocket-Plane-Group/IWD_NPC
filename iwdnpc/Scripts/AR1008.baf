@@ -1,0 +1,10 @@
+// Easthaven Inn
+IF
+Global("O#NPCNellaSevern1","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaSevern1","GLOBAL",1)
+Continue()
+END

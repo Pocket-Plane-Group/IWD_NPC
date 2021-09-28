@@ -1,0 +1,11 @@
+// Barbarian camp, Mead Hall
+IF
+Global("O#PCTeri16","GLOBAL",0)
+InParty("O#Teri")
+Global("Seer_Death_OK","GLOBAL",1)
+Dead("SEER")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri16","GLOBAL",1)
+Continue()
+END

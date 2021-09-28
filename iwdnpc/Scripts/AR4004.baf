@@ -1,0 +1,68 @@
+// Dragon's Eye, level 4, cultists
+IF
+Global("O#NPCNellaTeri3","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaTeri3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirNella4","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Nella")
+PartyHasItem("KEYALBI")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirNella4","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCSevern4","GLOBAL",0)
+InParty("O#Severn")
+Global("O#MarchonFree","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("O#PCSevern4","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCHolvir5","GLOBAL",0)
+InParty("O#Holvir")
+OR(2)
+GlobalGT("Dead_Yuan","GLOBAL",2)
+GlobalGT("SPRITE_IS_DEADYUAN_CULTIST","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir5","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinSevern3","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Severn")
+OR(2)
+GlobalGT("Dead_Yuan","GLOBAL",10)
+GlobalGT("SPRITE_IS_DEADYUAN_CULTIST","GLOBAL",10)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinSevern3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCNellaSevern4","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Severn")
+InParty("O#Teri")
+PartyHasItem("HEARTGM")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaSevern4","GLOBAL",1)
+Continue()
+END

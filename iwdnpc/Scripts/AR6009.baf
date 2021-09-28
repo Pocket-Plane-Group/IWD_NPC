@@ -1,0 +1,10 @@
+// Dorn's Deep, orc cave
+IF
+Global("O#NPCKorinTeri7","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri7","GLOBAL",1)
+Continue()
+END

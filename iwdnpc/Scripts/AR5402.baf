@@ -1,0 +1,10 @@
+// Severed Hand, monster towerlet, second floor
+IF
+Global("O#NPCHolvirTeri5","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirTeri5","GLOBAL",1)
+Continue()
+END

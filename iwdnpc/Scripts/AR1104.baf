@@ -1,0 +1,13 @@
+// Easthaven finale, Temple of Tempus, fourth floor, mirror
+IF
+Global("O#AllDialogue5","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+InParty("O#Nella")
+InParty("O#Teri")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#AllDialogue5","GLOBAL",1)
+Continue()
+END

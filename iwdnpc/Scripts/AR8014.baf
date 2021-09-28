@@ -1,0 +1,9 @@
+// Lower Dorn's Deep, watchtower top level
+IF
+Global("O#PCNella9","GLOBAL",0)
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella9","GLOBAL",1)
+Continue()
+END

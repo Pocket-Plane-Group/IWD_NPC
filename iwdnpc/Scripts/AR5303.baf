@@ -1,0 +1,10 @@
+// Severed Hand, warrior towerlet, third floor
+IF
+Global("O#NPCSevernTeri8","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri8","GLOBAL",1)
+Continue()
+END

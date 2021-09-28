@@ -1,0 +1,20 @@
+// Temple of Myrkul
+IF
+Global("O#NPCKorinSevern1","GLOBAL",0)
+PartyHasItem("Keysanc")
+InParty("O#Korin")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinSevern1","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCNella1","GLOBAL",0)
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella1","GLOBAL",1)
+Continue()
+END

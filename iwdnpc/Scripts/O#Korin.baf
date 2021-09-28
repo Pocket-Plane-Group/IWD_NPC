@@ -1,0 +1,394 @@
+// Prologue
+
+// AR1000, after receiving caravan quest (Easthaven)
+IF
+InParty(Myself)
+Global("O#PCKorin1","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// Chapter 1
+
+// AR2100 (Kuldahar)
+IF
+InParty(Myself)
+Global("O#PCKorin2","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// AR2107 (Kuldahar temple)
+IF
+InParty(Myself)
+Global("O#NPCKorinTeri1","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Teri")
+END
+
+// AR3000 (Vale of Shadows, tomb 3)
+IF
+InParty(Myself)
+Global("O#NPCHolvirKorin1","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Holvir")
+END
+
+// AR3000 (Vale of Shadows), GlobalGT("Kress_Quest","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#NPCKorinSevern2","GLOBAL",1)
+InParty("O#Severn")
+Detect("O#Severn")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Severn",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Severn")
+END
+
+// AR3501 (Black Wolf, level 1), Mytos is dead
+IF
+InParty(Myself)
+Global("O#PCKorin3","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// Chapter 2
+
+// AR4001 (Dragon's Eye, level 1, Lizard King), OR(2) PartyHasItem("EREVAIN") PartyHasItem("EREJOUR")
+IF
+InParty(Myself)
+Global("O#PCKorin4","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// AR4002 (Dragon's Eye, level 2, Talona priests)
+IF
+InParty(Myself)
+Global("O#NPCKorinNella3","GLOBAL",1)
+InParty("O#Nella")
+Detect("O#Nella")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Nella")
+END
+
+// AR4004 (Dragon's Eye, level 4, cultists), GlobalGT("Dead_Yuan","GLOBAL",10)
+IF
+InParty(Myself)
+Global("O#NPCKorinSevern3","GLOBAL",1)
+InParty("O#Severn")
+Detect("O#Severn")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Severn",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Severn")
+END
+
+// AR4005 (Dragon's Eye, level 5, Yxunomei goddess), GlobalGT("D5_Girl_Move_Loc","GLOBAL",2)
+IF
+InParty(Myself)
+Global("O#NPCKorinTeri4","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Teri")
+END
+
+// AR4005 (Dragon's Eye, level 5, Yxunomei goddess), PartyHasItem("CHAINBM")
+IF
+InParty(Myself)
+Global("O#PCKorin5","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// AR2112 (Arundel's house, first floor), Arundel is dead
+IF
+InParty(Myself)
+Global("O#PCKorin6","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// Chapter 3
+
+// AR5004 (Severed Hand, fourth floor), PartyHasItem("PIECE2")
+IF
+InParty(Myself)
+Global("O#NPCKorinNella5","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Nella")
+END
+
+// AR5401 (Severed Hand, monster towerlet, first floor), PartyHasItem("PIECE1")
+IF
+InParty(Myself)
+Global("O#PCKorin7","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// AR5104 (Severed Hand, mage towerlet, first floor), PartyHasItem("BOOKEVA")
+IF
+InParty(Myself)
+Global("O#PCKorin8","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// Chapter 4
+
+// AR6001 (Dorn's Deep, entry cavern) 
+IF
+InParty(Myself)
+Global("O#NPCKorinNella6","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Nella")
+END
+
+// AR6003 (Dorn's Deep, orog cave, Saablic, Krilag)
+IF
+InParty(Myself)
+Global("O#NPCHolvirKorin5","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Holvir")
+END
+
+// AR6003 (Dorn's Deep, orog cave, Saablic, Krilag), PartyHasItem("KRILAG")
+IF
+InParty(Myself)
+Global("O#NPCKorinSevern5","GLOBAL",1)
+InParty("O#Severn")
+Detect("O#Severn")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Severn",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Severn")
+END
+
+// AR6002 (Dorn's Deep, main hall), GlobalGT("PUZZLE_STAIRS_OPEN","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#NPCHolvirKorin6","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Holvir")
+END
+
+// AR6005 (Dorn's Deep, Tiers of the Dead), PartyHasItem("TKEY")
+IF
+InParty(Myself)
+Global("O#NPCKorinNella7","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Nella")
+END
+
+// AR6013 (Dorn's Deep, Temple of Moradin, working forge)
+IF
+InParty(Myself)
+Global("O#PCKorin9","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// Chapter 5
+
+// AR7004 (Wyrm's Tooth Glacier, frost giant cave), Dead("Kontik")
+IF
+InParty(Myself)
+Global("O#PCKorin10","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// Chapter 6
+
+// AR8004 (Lower Dorn's Deep, gnome village), GlobalGT("O#NymBetrayal","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#NPCKorinTeri8","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Teri")
+END
+
+// AR8016 (Lower Dorn's Deep, home in gnome village)
+IF
+InParty(Myself)
+Global("O#PCKorin11","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// AR8006 (Lower Dorn's Deep, palace, first floor), PartyHasItem("MARKETH")
+IF
+InParty(Myself)
+Global("O#PCKorin12","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// Finale
+
+// Lovetalks
+
+// AR8012 (Lower Dorn's Deep, Brother Perdiem), GlobalGT("ALL_KEYS","GLOBAL",5), Global("O#KorinMatch","GLOBAL",1)
+IF
+InParty(Myself)
+Global("O#PCKorin13","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// AR1100 (Easthaven finale), Global("O#KorinMatch","GLOBAL",2)
+IF
+InParty(Myself)
+Global("O#PCKorin14","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// AR1102 (Easthaven finale, Temple of Tempus, second floor, beds), Global("O#KorinMatch","GLOBAL",2)
+IF
+InParty(Myself)
+Global("O#PCKorin15","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END

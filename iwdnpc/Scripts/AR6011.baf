@@ -1,0 +1,10 @@
+// Dorn's Deep, machinery room
+IF
+Global("O#NPCNellaTeri5","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaTeri5","GLOBAL",1)
+Continue()
+END

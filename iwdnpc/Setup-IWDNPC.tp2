@@ -1,0 +1,1877 @@
+BACKUP ~IWDNPC/backup~
+AUTHOR ~http://forums.pocketplane.net~
+
+ASK_EVERY_COMPONENT
+
+VERSION ~v7~
+
+AUTO_TRA ~IWDNPC/%s~
+
+LANGUAGE ~English~ ~English~ ~IWDNPC/English/Setup-IWDNPC.tra~
+LANGUAGE ~Russian (Translated by saigon1983 and Staylos)~ ~Russian~ ~IWDNPC/Russian/Setup-IWDNPC.tra~
+
+BEGIN @0
+
+// CamDawg's code for State.ids
+APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
+UNLESS ~CD_STATE_NOTVALID~
+
+// IWD fixpack: code for assigning area scripts
+COPY_EXISTING ~ar1101.are~ ~override~
+              ~ar1102.are~ ~override~
+              ~ar1104.are~ ~override~
+              ~ar1106.are~ ~override~
+              ~ar1109.are~ ~override~
+              ~ar1200.are~ ~override~
+              ~ar1201.are~ ~override~
+              ~ar2001.are~ ~override~
+              ~ar2002.are~ ~override~
+              ~ar2003.are~ ~override~
+              ~ar2005.are~ ~override~
+              ~ar2006.are~ ~override~
+              ~ar3001.are~ ~override~
+              ~ar3101.are~ ~override~
+              ~ar3201.are~ ~override~
+              ~ar3301.are~ ~override~
+              ~ar3401.are~ ~override~
+              ~ar3501.are~ ~override~
+              ~ar3502.are~ ~override~
+              ~ar3503.are~ ~override~
+              ~ar3600.are~ ~override~
+              ~ar3601.are~ ~override~
+              ~ar3602.are~ ~override~
+              ~ar3603.are~ ~override~
+	      ~ar4002.are~ ~override~
+              ~ar4004.are~ ~override~
+              ~ar5001.are~ ~override~
+              ~ar5002.are~ ~override~
+              ~ar5003.are~ ~override~
+              ~ar5102.are~ ~override~
+              ~ar5201.are~ ~override~
+              ~ar5202.are~ ~override~
+              ~ar5203.are~ ~override~
+              ~ar5204.are~ ~override~
+              ~ar5301.are~ ~override~
+              ~ar5302.are~ ~override~
+              ~ar5303.are~ ~override~
+              ~ar5401.are~ ~override~
+              ~ar5402.are~ ~override~
+              ~ar5403.are~ ~override~
+              ~ar5404.are~ ~override~
+              ~ar5502.are~ ~override~
+              ~ar6001.are~ ~override~
+              ~ar6007.are~ ~override~
+              ~ar6009.are~ ~override~
+              ~ar6011.are~ ~override~
+              ~ar6014.are~ ~override~
+              ~ar7000.are~ ~override~
+              ~ar7002.are~ ~override~
+              ~ar8002.are~ ~override~
+              ~ar8014.are~ ~override~
+              ~ar8015.are~ ~override~
+              ~ar8016.are~ ~override~
+WRITE_ASCIIE 0x94 ~%SOURCE_RES%~ #8
+BUT_ONLY_IF_IT_CHANGES
+
+// IWD fixpack: code for assigning area scripts, HoW
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9100.are~ THEN BEGIN
+COPY_EXISTING ~ar9103.are~ ~override~
+	      ~ar9301.are~ ~override~
+              ~ar9501.are~ ~override~
+              ~ar9601.are~ ~override~
+WRITE_ASCIIE 0x94 ~%SOURCE_RES%~ #8
+BUT_ONLY_IF_IT_CHANGES
+END
+
+// IWD fixpack: code for assigning area scripts, TotL
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9700.are~ THEN BEGIN
+COPY_EXISTING ~ar9800.are~ ~override~
+              ~ar9801.are~ ~override~
+WRITE_ASCIIE 0x94 ~%SOURCE_RES%~ #8
+BUT_ONLY_IF_IT_CHANGES
+END
+
+COMPILE ~IWDNPC/Dialogue/Dialogue.d~
+
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9100.are~ THEN BEGIN
+COMPILE ~IWDNPC/Dialogue/DialogueHoW.d~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9700.are~ THEN BEGIN
+COMPILE ~IWDNPC/Dialogue/DialogueTotL.d~
+END
+
+COMPILE ~IWDNPC/Scripts/O#Holvir.baf~
+COMPILE ~IWDNPC/Scripts/O#Korin.baf~
+COMPILE ~IWDNPC/Scripts/O#Nella.baf~
+COMPILE ~IWDNPC/Scripts/O#Severn.baf~
+COMPILE ~IWDNPC/Scripts/O#Teri.baf~
+
+EXTEND_TOP ~AR1000.bcs~ ~IWDNPC/Scripts/AR1000.baf~
+EXTEND_TOP ~AR1001.bcs~ ~IWDNPC/Scripts/AR1001.baf~
+EXTEND_TOP ~AR1004.bcs~ ~IWDNPC/Scripts/AR1004.baf~
+EXTEND_TOP ~AR1008.bcs~ ~IWDNPC/Scripts/AR1008.baf~
+EXTEND_TOP ~AR1201.bcs~ ~IWDNPC/Scripts/AR1201.baf~
+EXTEND_TOP ~AR2001.bcs~ ~IWDNPC/Scripts/AR2001.baf~
+EXTEND_TOP ~AR2003.bcs~ ~IWDNPC/Scripts/AR2003.baf~
+EXTEND_TOP ~AR2004.bcs~ ~IWDNPC/Scripts/AR2004.baf~
+EXTEND_TOP ~AR2100.bcs~ ~IWDNPC/Scripts/AR2100.baf~
+EXTEND_TOP ~AR2103.bcs~ ~IWDNPC/Scripts/AR2103.baf~
+EXTEND_TOP ~AR2107.bcs~ ~IWDNPC/Scripts/AR2107.baf~
+EXTEND_TOP ~AR2111.bcs~ ~IWDNPC/Scripts/AR2111.baf~
+EXTEND_TOP ~AR2112.bcs~ ~IWDNPC/Scripts/AR2112.baf~
+EXTEND_TOP ~AR2116.bcs~ ~IWDNPC/Scripts/AR2116.baf~
+EXTEND_TOP ~AR3000.bcs~ ~IWDNPC/Scripts/AR3000.baf~
+EXTEND_TOP ~AR3201.bcs~ ~IWDNPC/Scripts/AR3201.baf~
+EXTEND_TOP ~AR3301.bcs~ ~IWDNPC/Scripts/AR3301.baf~
+EXTEND_TOP ~AR3401.bcs~ ~IWDNPC/Scripts/AR3401.baf~
+EXTEND_TOP ~AR3501.bcs~ ~IWDNPC/Scripts/AR3501.baf~
+EXTEND_TOP ~AR3502.bcs~ ~IWDNPC/Scripts/AR3502.baf~
+EXTEND_TOP ~AR3600.bcs~ ~IWDNPC/Scripts/AR3600.baf~
+EXTEND_TOP ~AR3601.bcs~ ~IWDNPC/Scripts/AR3601.baf~
+EXTEND_TOP ~AR3602.bcs~ ~IWDNPC/Scripts/AR3602.baf~
+EXTEND_TOP ~AR3603.bcs~ ~IWDNPC/Scripts/AR3603.baf~
+EXTEND_TOP ~AR4001.bcs~ ~IWDNPC/Scripts/AR4001.baf~
+EXTEND_TOP ~AR4002.bcs~ ~IWDNPC/Scripts/AR4002.baf~
+EXTEND_TOP ~AR4003.bcs~ ~IWDNPC/Scripts/AR4003.baf~
+EXTEND_TOP ~AR4004.bcs~ ~IWDNPC/Scripts/AR4004.baf~
+EXTEND_TOP ~AR4005.bcs~ ~IWDNPC/Scripts/AR4005.baf~
+EXTEND_TOP ~AR5000.bcs~ ~IWDNPC/Scripts/AR5000.baf~
+EXTEND_TOP ~AR5001.bcs~ ~IWDNPC/Scripts/AR5001.baf~
+EXTEND_TOP ~AR5002.bcs~ ~IWDNPC/Scripts/AR5002.baf~
+EXTEND_TOP ~AR5003.bcs~ ~IWDNPC/Scripts/AR5003.baf~
+EXTEND_TOP ~AR5004.bcs~ ~IWDNPC/Scripts/AR5004.baf~
+EXTEND_TOP ~AR5101.bcs~ ~IWDNPC/Scripts/AR5101.baf~
+EXTEND_TOP ~AR5102.bcs~ ~IWDNPC/Scripts/AR5102.baf~
+EXTEND_TOP ~AR5104.bcs~ ~IWDNPC/Scripts/AR5104.baf~
+EXTEND_TOP ~AR5201.bcs~ ~IWDNPC/Scripts/AR5201.baf~
+EXTEND_TOP ~AR5202.bcs~ ~IWDNPC/Scripts/AR5202.baf~
+EXTEND_TOP ~AR5203.bcs~ ~IWDNPC/Scripts/AR5203.baf~
+EXTEND_TOP ~AR5204.bcs~ ~IWDNPC/Scripts/AR5204.baf~
+EXTEND_TOP ~AR5302.bcs~ ~IWDNPC/Scripts/AR5302.baf~
+EXTEND_TOP ~AR5303.bcs~ ~IWDNPC/Scripts/AR5303.baf~
+EXTEND_TOP ~AR5304.bcs~ ~IWDNPC/Scripts/AR5304.baf~
+EXTEND_TOP ~AR5401.bcs~ ~IWDNPC/Scripts/AR5401.baf~
+EXTEND_TOP ~AR5402.bcs~ ~IWDNPC/Scripts/AR5402.baf~
+EXTEND_TOP ~AR5404.bcs~ ~IWDNPC/Scripts/AR5404.baf~
+EXTEND_TOP ~AR5502.bcs~ ~IWDNPC/Scripts/AR5502.baf~
+EXTEND_TOP ~AR6000.bcs~ ~IWDNPC/Scripts/AR6000.baf~
+EXTEND_TOP ~AR6001.bcs~ ~IWDNPC/Scripts/AR6001.baf~
+EXTEND_TOP ~AR6002.bcs~ ~IWDNPC/Scripts/AR6002.baf~
+EXTEND_TOP ~AR6003.bcs~ ~IWDNPC/Scripts/AR6003.baf~
+EXTEND_TOP ~AR6004.bcs~ ~IWDNPC/Scripts/AR6004.baf~
+EXTEND_TOP ~AR6005.bcs~ ~IWDNPC/Scripts/AR6005.baf~
+EXTEND_TOP ~AR6006.bcs~ ~IWDNPC/Scripts/AR6006.baf~
+EXTEND_TOP ~AR6007.bcs~ ~IWDNPC/Scripts/AR6007.baf~
+EXTEND_TOP ~AR6008.bcs~ ~IWDNPC/Scripts/AR6008.baf~
+EXTEND_TOP ~AR6009.bcs~ ~IWDNPC/Scripts/AR6009.baf~
+EXTEND_TOP ~AR6010.bcs~ ~IWDNPC/Scripts/AR6010.baf~
+EXTEND_TOP ~AR6011.bcs~ ~IWDNPC/Scripts/AR6011.baf~
+EXTEND_TOP ~AR6013.bcs~ ~IWDNPC/Scripts/AR6013.baf~
+EXTEND_TOP ~AR6014.bcs~ ~IWDNPC/Scripts/AR6014.baf~
+EXTEND_TOP ~AR7000.bcs~ ~IWDNPC/Scripts/AR7000.baf~
+EXTEND_TOP ~AR7001.bcs~ ~IWDNPC/Scripts/AR7001.baf~
+EXTEND_TOP ~AR7002.bcs~ ~IWDNPC/Scripts/AR7002.baf~
+EXTEND_TOP ~AR7003.bcs~ ~IWDNPC/Scripts/AR7003.baf~
+EXTEND_TOP ~AR7004.bcs~ ~IWDNPC/Scripts/AR7004.baf~
+EXTEND_TOP ~AR7005.bcs~ ~IWDNPC/Scripts/AR7005.baf~
+EXTEND_TOP ~AR8001.bcs~ ~IWDNPC/Scripts/AR8001.baf~
+EXTEND_TOP ~AR8002.bcs~ ~IWDNPC/Scripts/AR8002.baf~
+EXTEND_TOP ~AR8003.bcs~ ~IWDNPC/Scripts/AR8003.baf~
+EXTEND_TOP ~AR8004.bcs~ ~IWDNPC/Scripts/AR8004.baf~
+EXTEND_TOP ~AR8005.bcs~ ~IWDNPC/Scripts/AR8005.baf~
+EXTEND_TOP ~AR8006.bcs~ ~IWDNPC/Scripts/AR8006.baf~
+EXTEND_TOP ~AR8007.bcs~ ~IWDNPC/Scripts/AR8007.baf~
+EXTEND_TOP ~AR8008.bcs~ ~IWDNPC/Scripts/AR8008.baf~
+EXTEND_TOP ~AR8009.bcs~ ~IWDNPC/Scripts/AR8009.baf~
+EXTEND_TOP ~AR8010.bcs~ ~IWDNPC/Scripts/AR8010.baf~
+EXTEND_TOP ~AR8011.bcs~ ~IWDNPC/Scripts/AR8011.baf~
+EXTEND_TOP ~AR8012.bcs~ ~IWDNPC/Scripts/AR8012.baf~
+EXTEND_TOP ~AR8014.bcs~ ~IWDNPC/Scripts/AR8014.baf~
+EXTEND_TOP ~AR8016.bcs~ ~IWDNPC/Scripts/AR8016.baf~
+EXTEND_TOP ~AR1100.bcs~ ~IWDNPC/Scripts/AR1100.baf~
+EXTEND_TOP ~AR1102.bcs~ ~IWDNPC/Scripts/AR1102.baf~
+EXTEND_TOP ~AR1103.bcs~ ~IWDNPC/Scripts/AR1103.baf~
+EXTEND_TOP ~AR1104.bcs~ ~IWDNPC/Scripts/AR1104.baf~
+EXTEND_TOP ~AR1106.bcs~ ~IWDNPC/Scripts/AR1106.baf~
+
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9100.are~ THEN BEGIN
+EXTEND_BOTTOM ~O#Holvir.bcs~ ~IWDNPC/Scripts/HoWO#Holvir.baf~
+EXTEND_BOTTOM ~O#Korin.bcs~  ~IWDNPC/Scripts/HoWO#Korin.baf~
+EXTEND_BOTTOM ~O#Nella.bcs~  ~IWDNPC/Scripts/HoWO#Nella.baf~
+EXTEND_BOTTOM ~O#Severn.bcs~ ~IWDNPC/Scripts/HoWO#Severn.baf~
+EXTEND_BOTTOM ~O#Teri.bcs~   ~IWDNPC/Scripts/HoWO#Teri.baf~
+
+EXTEND_TOP ~AR9100.bcs~ ~IWDNPC/Scripts/AR9100.baf~
+EXTEND_TOP ~AR9101.bcs~ ~IWDNPC/Scripts/AR9101.baf~
+EXTEND_TOP ~AR9103.bcs~ ~IWDNPC/Scripts/AR9103.baf~
+EXTEND_TOP ~AR9107.bcs~ ~IWDNPC/Scripts/AR9107.baf~
+EXTEND_TOP ~AR9200.bcs~ ~IWDNPC/Scripts/AR9200.baf~
+EXTEND_TOP ~AR9201.bcs~ ~IWDNPC/Scripts/AR9201.baf~
+EXTEND_TOP ~AR9300.bcs~ ~IWDNPC/Scripts/AR9300.baf~
+EXTEND_TOP ~AR9301.bcs~ ~IWDNPC/Scripts/AR9301.baf~
+EXTEND_TOP ~AR9400.bcs~ ~IWDNPC/Scripts/AR9400.baf~
+EXTEND_TOP ~AR9500.bcs~ ~IWDNPC/Scripts/AR9500.baf~
+EXTEND_TOP ~AR9501.bcs~ ~IWDNPC/Scripts/AR9501.baf~
+EXTEND_TOP ~AR9502.bcs~ ~IWDNPC/Scripts/AR9502.baf~
+EXTEND_TOP ~AR9600.bcs~ ~IWDNPC/Scripts/AR9600.baf~
+EXTEND_TOP ~AR9601.bcs~ ~IWDNPC/Scripts/AR9601.baf~
+EXTEND_TOP ~AR9602.bcs~ ~IWDNPC/Scripts/AR9602.baf~
+EXTEND_TOP ~AR9603.bcs~ ~IWDNPC/Scripts/AR9603.baf~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9700.are~ THEN BEGIN
+EXTEND_BOTTOM ~O#Holvir.bcs~ ~IWDNPC/Scripts/TotLO#Holvir.baf~
+EXTEND_BOTTOM ~O#Korin.bcs~  ~IWDNPC/Scripts/TotLO#Korin.baf~
+EXTEND_BOTTOM ~O#Nella.bcs~  ~IWDNPC/Scripts/TotLO#Nella.baf~
+EXTEND_BOTTOM ~O#Severn.bcs~ ~IWDNPC/Scripts/TotLO#Severn.baf~
+EXTEND_BOTTOM ~O#Teri.bcs~   ~IWDNPC/Scripts/TotLO#Teri.baf~
+
+EXTEND_TOP ~AR9700.bcs~ ~IWDNPC/Scripts/AR9700.baf~
+EXTEND_TOP ~AR9705.bcs~ ~IWDNPC/Scripts/AR9705.baf~
+EXTEND_TOP ~AR9708.bcs~ ~IWDNPC/Scripts/AR9708.baf~
+EXTEND_TOP ~AR9709.bcs~ ~IWDNPC/Scripts/AR9709.baf~
+EXTEND_TOP ~AR9711.bcs~ ~IWDNPC/Scripts/AR9711.baf~
+EXTEND_TOP ~AR9712.bcs~ ~IWDNPC/Scripts/AR9712.baf~
+EXTEND_TOP ~AR9713.bcs~ ~IWDNPC/Scripts/AR9713.baf~
+EXTEND_TOP ~AR9714.bcs~ ~IWDNPC/Scripts/AR9714.baf~
+EXTEND_TOP ~AR9717.bcs~ ~IWDNPC/Scripts/AR9717.baf~
+EXTEND_TOP ~AR9718.bcs~ ~IWDNPC/Scripts/AR9718.baf~
+EXTEND_TOP ~AR9800.bcs~ ~IWDNPC/Scripts/AR9800.baf~
+EXTEND_TOP ~AR9801.bcs~ ~IWDNPC/Scripts/AR9801.baf~
+END
+
+// IWD-in-BG2 or IWD:EE
+
+ACTION_IF FILE_EXISTS_IN_GAME ~kitlist.2da~ THEN BEGIN
+
+PRINT @244
+
+ACTION_IF GAME_IS ~iwdee~ BEGIN
+COPY ~IWDNPC/Portraits/Enhanced~ ~override~          
+END ELSE BEGIN
+COPY ~IWDNPC/Portraits/Classic~ ~override~
+END
+
+COPY ~IWDNPC/Characters/O#Holvir.cre~ ~override/O#Holvir.cre~
+SAY NAME1 @213
+SAY NAME2 @213
+WRITE_ASCII 0x248  ~O#Holvir~ #8  // override
+WRITE_ASCII 0x2cc  ~O#HStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Holvir~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#HolvM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#HolvS~  #8  // small portrait
+SAY MORALE @14
+SAY LEADER @21
+SAY TIRED @23
+SAY BORED @25
+SAY BATTLE_CRY1 @15
+SAY BATTLE_CRY2 @16
+SAY BATTLE_CRY3 @17
+SAY BATTLE_CRY4 @18
+SAY BATTLE_CRY5 @19
+SAY DAMAGE @46
+SAY DYING @49
+SAY HURT @27
+SAY SELECT_COMMON1 @28
+SAY SELECT_COMMON2 @29
+SAY SELECT_COMMON3 @30
+SAY SELECT_COMMON4 @31
+SAY SELECT_COMMON5 @32
+SAY SELECT_COMMON6 @33
+SAY SELECT_ACTION1 @35
+SAY SELECT_ACTION2 @36
+SAY SELECT_ACTION3 @37
+SAY SELECT_ACTION4 @38
+SAY SELECT_ACTION5 @39
+SAY SELECT_ACTION6 @40
+SAY SELECT_ACTION7 @41
+SAY SELECT_RARE1 @42
+SAY SELECT_RARE2 @43
+SAY BIO @218
+
+COPY ~IWDNPC/Characters/O#Korin.cre~  ~override/O#Korin.cre~
+SAY NAME1 @214
+SAY NAME2 @214
+WRITE_ASCII 0x248  ~O#Korin~  #8  // override
+WRITE_ASCII 0x2cc  ~O#KStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Korin~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#KoriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#KoriS~  #8  // small portrait
+SAY MORALE @53
+SAY LEADER @60
+SAY TIRED @63
+SAY BORED @65
+SAY BATTLE_CRY1 @55
+SAY BATTLE_CRY2 @56
+SAY BATTLE_CRY3 @57
+SAY BATTLE_CRY4 @58
+SAY BATTLE_CRY5 @59
+SAY DAMAGE @86
+SAY DYING @89
+SAY HURT @67
+SAY SELECT_COMMON1 @68
+SAY SELECT_COMMON2 @69
+SAY SELECT_COMMON3 @70
+SAY SELECT_COMMON4 @71
+SAY SELECT_COMMON5 @72
+SAY SELECT_COMMON6 @73
+SAY SELECT_ACTION1 @75
+SAY SELECT_ACTION2 @76
+SAY SELECT_ACTION3 @77
+SAY SELECT_ACTION4 @78
+SAY SELECT_ACTION5 @79
+SAY SELECT_ACTION6 @80
+SAY SELECT_ACTION7 @81
+SAY SELECT_RARE1 @82
+SAY SELECT_RARE2 @83
+SAY BIO @219
+
+COPY ~IWDNPC/Characters/O#Nella.cre~  ~override/O#Nella.cre~
+SAY NAME1 @215
+SAY NAME2 @215
+WRITE_ASCII 0x248  ~O#Nella~  #8  // override
+WRITE_ASCII 0x2cc  ~O#NStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Nella~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#NellM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#NellS~  #8  // small portrait
+SAY MORALE @93
+SAY LEADER @100
+SAY TIRED @103
+SAY BORED @104
+SAY BATTLE_CRY1 @95
+SAY BATTLE_CRY2 @96
+SAY BATTLE_CRY3 @97
+SAY BATTLE_CRY4 @98
+SAY BATTLE_CRY5 @99
+SAY DAMAGE @126
+SAY DYING @130
+SAY HURT @106
+SAY SELECT_COMMON1 @108
+SAY SELECT_COMMON2 @109
+SAY SELECT_COMMON3 @110
+SAY SELECT_COMMON4 @111
+SAY SELECT_COMMON5 @112
+SAY SELECT_COMMON6 @113
+SAY SELECT_ACTION1 @115
+SAY SELECT_ACTION2 @116
+SAY SELECT_ACTION3 @117
+SAY SELECT_ACTION4 @118
+SAY SELECT_ACTION5 @119
+SAY SELECT_ACTION6 @120
+SAY SELECT_ACTION7 @121
+SAY SELECT_RARE1 @122
+SAY SELECT_RARE2 @123
+SAY BIO @220
+
+COPY ~IWDNPC/Characters/O#Severn.cre~ ~override/O#Severn.cre~
+SAY NAME1 @216
+SAY NAME2 @216
+WRITE_ASCII 0x248  ~O#Severn~ #8  // override
+WRITE_ASCII 0x2cc  ~O#SStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Severn~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#SeveM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#SeveS~  #8  // small portrait
+SAY MORALE @134
+SAY LEADER @141
+SAY TIRED @143
+SAY BORED @144
+SAY BATTLE_CRY1 @135
+SAY BATTLE_CRY2 @136
+SAY BATTLE_CRY3 @137
+SAY BATTLE_CRY4 @138
+SAY BATTLE_CRY5 @139
+SAY DAMAGE @166
+SAY DYING @169
+SAY HURT @146
+SAY SELECT_COMMON1 @148
+SAY SELECT_COMMON2 @149
+SAY SELECT_COMMON3 @150
+SAY SELECT_COMMON4 @151
+SAY SELECT_COMMON5 @152
+SAY SELECT_COMMON6 @153
+SAY SELECT_ACTION1 @155
+SAY SELECT_ACTION2 @156
+SAY SELECT_ACTION3 @157
+SAY SELECT_ACTION4 @158
+SAY SELECT_ACTION5 @159
+SAY SELECT_ACTION6 @160
+SAY SELECT_ACTION7 @161
+SAY SELECT_RARE1 @162
+SAY SELECT_RARE2 @163
+SAY BIO @221
+
+COPY ~IWDNPC/Characters/O#Teri.cre~   ~override/O#Teri.cre~
+SAY NAME1 @217
+SAY NAME2 @217
+WRITE_ASCII 0x248  ~O#Teri~   #8  // override
+WRITE_ASCII 0x2cc  ~O#TStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Teri~   #32 // death variable
+WRITE_ASCII 0x3c   ~O#TeriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#TeriS~  #8  // small portrait
+SAY MORALE @173
+SAY LEADER @180
+SAY TIRED @183
+SAY BORED @185
+SAY BATTLE_CRY1 @175
+SAY BATTLE_CRY2 @176
+SAY BATTLE_CRY3 @177
+SAY BATTLE_CRY4 @178
+SAY BATTLE_CRY5 @179
+SAY DAMAGE @206
+SAY DYING @210
+SAY HURT @186
+SAY SELECT_COMMON1 @188
+SAY SELECT_COMMON2 @189
+SAY SELECT_COMMON3 @190
+SAY SELECT_COMMON4 @191
+SAY SELECT_COMMON5 @192
+SAY SELECT_COMMON6 @193
+SAY SELECT_ACTION1 @195
+SAY SELECT_ACTION2 @196
+SAY SELECT_ACTION3 @197
+SAY SELECT_ACTION4 @198
+SAY SELECT_ACTION5 @199
+SAY SELECT_ACTION6 @200
+SAY SELECT_ACTION7 @201
+SAY SELECT_RARE1 @202
+SAY SELECT_RARE2 @203
+SAY BIO @222
+
+COMPILE ~IWDNPC/Dialogue/O#Dump.d~
+COMPILE ~IWDNPC/Dialogue/ReplaceBG2.d~
+COMPILE ~IWDNPC/Dialogue/InterjectBG2.d~ USING ~IWDNPC/%s/Interjections.tra~
+COMPILE ~IWDNPC/Dialogue/O#StartBG2.d~ USING ~IWDNPC/%s/Dialogue.tra~
+
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9100.are~ THEN BEGIN
+COMPILE ~IWDNPC/Dialogue/O#Dump1.d~
+COMPILE ~IWDNPC/Dialogue/ReplaceHoWBG2.d~
+COMPILE ~IWDNPC/Dialogue/InterjectHoWBG2.d~ USING ~IWDNPC/%s/InterjectionsHoW.tra~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9700.are~ THEN BEGIN
+COMPILE ~IWDNPC/Dialogue/O#Dump2.d~
+COMPILE ~IWDNPC/Dialogue/ReplaceTotLBG2.d~
+COMPILE ~IWDNPC/Dialogue/InterjectTotLBG2.d~ USING ~IWDNPC/%s/InterjectionsTotL.tra~
+END
+
+COMPILE ~IWDNPC/Scripts/O#HFix.baf~ USING ~IWDNPC/%s/Setup-IWDNPC.tra~
+COMPILE ~IWDNPC/Scripts/O#KFix.baf~ USING ~IWDNPC/%s/Setup-IWDNPC.tra~
+COMPILE ~IWDNPC/Scripts/O#NFix.baf~ USING ~IWDNPC/%s/Setup-IWDNPC.tra~
+COMPILE ~IWDNPC/Scripts/O#SFix.baf~ USING ~IWDNPC/%s/Setup-IWDNPC.tra~
+COMPILE ~IWDNPC/Scripts/O#TFix.baf~ USING ~IWDNPC/%s/Setup-IWDNPC.tra~
+
+EXTEND_TOP ~O#Holvir.bcs~ ~IWDNPC/Scripts/O#HFix2.baf~
+EXTEND_TOP ~O#Korin.bcs~  ~IWDNPC/Scripts/O#KFix2.baf~
+EXTEND_TOP ~O#Nella.bcs~  ~IWDNPC/Scripts/O#NFix2.baf~
+EXTEND_TOP ~O#Severn.bcs~ ~IWDNPC/Scripts/O#SFix2.baf~
+EXTEND_TOP ~O#Teri.bcs~   ~IWDNPC/Scripts/O#TFix2.baf~
+
+EXTEND_TOP ~AR1006.bcs~ ~IWDNPC/Scripts/AR1006BG2.baf~
+
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9100.are~ THEN BEGIN
+EXTEND_TOP ~AR9101.bcs~ ~IWDNPC/Scripts/AR9101BG2.baf~
+END
+
+APPEND ~pdialog.2da~ ~O#HOLVIR     O#HLEAVE           O#HOLVIR          O#HOLVID       O#HLEAVE           O#HOLVIR              O#HOLVID              O#HOLVIR~
+UNLESS ~O#HOLVIR~
+APPEND ~pdialog.2da~ ~O#KORIN      O#KLEAVE           O#KORIN           O#KORIND       O#KLEAVE           O#KORIN               O#KORIND              O#KORIN~
+UNLESS ~O#KORIN~
+APPEND ~pdialog.2da~ ~O#NELLA      O#NLEAVE           O#NELLA           O#NELLAD       O#NLEAVE           O#NELLA               O#NELLAD              O#NELLA~
+UNLESS ~O#NELLA~
+APPEND ~pdialog.2da~ ~O#SEVERN     O#SLEAVE           O#SEVERN          O#SEVERD       O#SLEAVE           O#SEVERN              O#SEVERD              O#SEVERN~
+UNLESS ~O#SEVERN~
+APPEND ~pdialog.2da~ ~O#TERI       O#TLEAVE           O#TERI            O#TERID        O#TLEAVE           O#TERI                O#TERID               O#TERI~
+UNLESS ~O#TERI~
+
+AT_NOW ~IWDNPC/Audio/AudioInstallBG2.bat~
+AT_UNINSTALL ~IWDNPC/Audio/AudioUninstallBG2.bat~
+
+END ELSE BEGIN
+
+// IWD only
+
+PRINT @243
+
+MKDIR ~Portraits~
+MKDIR ~Sounds\O#Holvir~
+MKDIR ~Sounds\O#Korin~
+MKDIR ~Sounds\O#Nella~
+MKDIR ~Sounds\O#Severn~
+MKDIR ~Sounds\O#Teri~
+
+COPY ~IWDNPC/Characters/O#Holvir.chr~ ~Characters/O#Holvir.chr~
+COPY ~IWDNPC/Characters/O#Holvir.res~ ~Characters/O#Holvir.res~
+COPY ~IWDNPC/Characters/O#Korin.chr~  ~Characters/O#Korin.chr~
+COPY ~IWDNPC/Characters/O#Korin.res~  ~Characters/O#Korin.res~
+COPY ~IWDNPC/Characters/O#Nella.chr~  ~Characters/O#Nella.chr~
+COPY ~IWDNPC/Characters/O#Nella.res~  ~Characters/O#Nella.res~
+COPY ~IWDNPC/Characters/O#Severn.chr~ ~Characters/O#Severn.chr~
+COPY ~IWDNPC/Characters/O#Severn.res~ ~Characters/O#Severn.res~
+COPY ~IWDNPC/Characters/O#Teri.chr~   ~Characters/O#Teri.chr~
+COPY ~IWDNPC/Characters/O#Teri.res~   ~Characters/O#Teri.res~
+
+COPY ~IWDNPC/Portraits/Classic~ ~Portraits~
+
+APPEND ~portcolr.2da~ ~
+O#HOLVM		12	2	3	18
+O#KORIM		12	0	7	41
+O#NELLM		12	3	6	56
+O#SEVEM		12	2	41	47
+O#TERIM		12	0	42	15~
+UNLESS ~O#HOLVM~
+
+APPEND ~charstr.2da~ ~O#HOLVIR o#hdum01 o#hdum02 o#hdum03 o#hdum04 o#hdum05 o#hdum06 o#hdum07 o#hdum08 o#hdum09 o#hdum10 o#hdum11 o#hdum12 o#hdum13 o#hdum14 o#hdum15 o#hdum16 o#hdum17 o#hdum18 o#hdum19 o#hdum20 o#hdum21 o#hdum22 o#hdum23 o#hdum24 o#hdum25 o#hdum26 o#hdum27 o#hdum28 o#hdum29 o#hdum30 o#hdum31 o#hdum32 o#hdum33 o#hdum34 o#hdum35 o#hdum36 o#hdum37 o#hdum38 o#hdum39 o#hdum40~
+UNLESS ~O#HOLVIR~
+
+APPEND ~charstr.2da~ ~O#KORIN o#kdum01 o#kdum02 o#kdum03 o#kdum04 o#kdum05 o#kdum06 o#kdum07 o#kdum08 o#kdum09 o#kdum10 o#kdum11 o#kdum12 o#kdum13 o#kdum14 o#kdum15 o#kdum16 o#kdum17 o#kdum18 o#kdum19 o#kdum20 o#kdum21 o#kdum22 o#kdum23 o#kdum24 o#kdum25 o#kdum26 o#kdum27 o#kdum28 o#kdum29 o#kdum30 o#kdum31 o#kdum32 o#kdum33 o#kdum34 o#kdum35 o#kdum36 o#kdum37 o#kdum38 o#kdum39 o#kdum40~
+UNLESS ~O#KORIN~
+
+APPEND ~charstr.2da~ ~O#NELLA o#ndum01 o#ndum02 o#ndum03 o#ndum04 o#ndum05 o#ndum06 o#ndum07 o#ndum08 o#ndum09 o#ndum10 o#ndum11 o#ndum12 o#ndum13 o#ndum14 o#ndum15 o#ndum16 o#ndum17 o#ndum18 o#ndum19 o#ndum20 o#ndum21 o#ndum22 o#ndum23 o#ndum24 o#ndum25 o#ndum26 o#ndum27 o#ndum28 o#ndum29 o#ndum30 o#ndum31 o#ndum32 o#ndum33 o#ndum34 o#ndum35 o#ndum36 o#ndum37 o#ndum38 o#ndum39 o#ndum40~
+UNLESS ~O#NELLA~
+
+APPEND ~charstr.2da~ ~O#SEVERN o#sdum01 o#sdum02 o#sdum03 o#sdum04 o#sdum05 o#sdum06 o#sdum07 o#sdum08 o#sdum09 o#sdum10 o#sdum11 o#sdum12 o#sdum13 o#sdum14 o#sdum15 o#sdum16 o#sdum17 o#sdum18 o#sdum19 o#sdum20 o#sdum21 o#sdum22 o#sdum23 o#sdum24 o#sdum25 o#sdum26 o#sdum27 o#sdum28 o#sdum29 o#sdum30 o#sdum31 o#sdum32 o#sdum33 o#sdum34 o#sdum35 o#sdum36 o#sdum37 o#sdum38 o#sdum39 o#sdum40~
+UNLESS ~O#SEVERN~
+
+APPEND ~charstr.2da~ ~O#TERI o#tdum01 o#tdum02 o#tdum03 o#tdum04 o#tdum05 o#tdum06 o#tdum07 o#tdum08 o#tdum09 o#tdum10 o#tdum11 o#tdum12 o#tdum13 o#tdum14 o#tdum15 o#tdum16 o#tdum17 o#tdum18 o#tdum19 o#tdum20 o#tdum21 o#tdum22 o#tdum23 o#tdum24 o#tdum25 o#tdum26 o#tdum27 o#tdum28 o#tdum29 o#tdum30 o#tdum31 o#tdum32 o#tdum33 o#tdum34 o#tdum35 o#tdum36 o#tdum37 o#tdum38 o#tdum39 o#tdum40~
+UNLESS ~O#TERI~
+
+COPY_EXISTING ~charstr.2da~ ~override~
+REPLACE o#hdum01 @13
+REPLACE o#hdum02 @14
+REPLACE o#hdum03 @15
+REPLACE o#hdum04 @16
+REPLACE o#hdum05 @17
+REPLACE o#hdum06 @18
+REPLACE o#hdum07 @19
+REPLACE o#hdum08 @20
+REPLACE o#hdum09 @21
+REPLACE o#hdum10 @22
+REPLACE o#hdum11 @23
+REPLACE o#hdum12 @24
+REPLACE o#hdum13 @25
+REPLACE o#hdum14 @26
+REPLACE o#hdum15 @27
+REPLACE o#hdum16 @28
+REPLACE o#hdum17 @29
+REPLACE o#hdum18 @30
+REPLACE o#hdum19 @31
+REPLACE o#hdum20 @32
+REPLACE o#hdum21 @33
+REPLACE o#hdum22 @34
+REPLACE o#hdum23 @35
+REPLACE o#hdum24 @36
+REPLACE o#hdum25 @37
+REPLACE o#hdum26 @38
+REPLACE o#hdum27 @39
+REPLACE o#hdum28 @40
+REPLACE o#hdum29 @41
+REPLACE o#hdum30 @42
+REPLACE o#hdum31 @43
+REPLACE o#hdum32 @44
+REPLACE o#hdum33 @45
+REPLACE o#hdum34 @46
+REPLACE o#hdum35 @47
+REPLACE o#hdum36 @48
+REPLACE o#hdum37 @49
+REPLACE o#hdum38 @50
+REPLACE o#hdum39 @51
+REPLACE o#hdum40 @52
+/* Korin */
+REPLACE o#kdum01 @53
+REPLACE o#kdum02 @54
+REPLACE o#kdum03 @55
+REPLACE o#kdum04 @56
+REPLACE o#kdum05 @57
+REPLACE o#kdum06 @58
+REPLACE o#kdum07 @59
+REPLACE o#kdum08 @60
+REPLACE o#kdum09 @61
+REPLACE o#kdum10 @62
+REPLACE o#kdum11 @63
+REPLACE o#kdum12 @64
+REPLACE o#kdum13 @65
+REPLACE o#kdum14 @66
+REPLACE o#kdum15 @67
+REPLACE o#kdum16 @68
+REPLACE o#kdum17 @69
+REPLACE o#kdum18 @70
+REPLACE o#kdum19 @71
+REPLACE o#kdum20 @72
+REPLACE o#kdum21 @73
+REPLACE o#kdum22 @74
+REPLACE o#kdum23 @75
+REPLACE o#kdum24 @76
+REPLACE o#kdum25 @77
+REPLACE o#kdum26 @78
+REPLACE o#kdum27 @79
+REPLACE o#kdum28 @80
+REPLACE o#kdum29 @81
+REPLACE o#kdum30 @82
+REPLACE o#kdum31 @83
+REPLACE o#kdum32 @84
+REPLACE o#kdum33 @85
+REPLACE o#kdum34 @86
+REPLACE o#kdum35 @87
+REPLACE o#kdum36 @88
+REPLACE o#kdum37 @89
+REPLACE o#kdum38 @90
+REPLACE o#kdum39 @91
+REPLACE o#kdum40 @92
+/* Nella */
+REPLACE o#ndum01 @93
+REPLACE o#ndum02 @94
+REPLACE o#ndum03 @95
+REPLACE o#ndum04 @96
+REPLACE o#ndum05 @97
+REPLACE o#ndum06 @98
+REPLACE o#ndum07 @99
+REPLACE o#ndum08 @100
+REPLACE o#ndum09 @101
+REPLACE o#ndum10 @102
+REPLACE o#ndum11 @103
+REPLACE o#ndum12 @104
+REPLACE o#ndum13 @105
+REPLACE o#ndum14 @106
+REPLACE o#ndum15 @107
+REPLACE o#ndum16 @108
+REPLACE o#ndum17 @109
+REPLACE o#ndum18 @110
+REPLACE o#ndum19 @111
+REPLACE o#ndum20 @112
+REPLACE o#ndum21 @113
+REPLACE o#ndum22 @114
+REPLACE o#ndum23 @115
+REPLACE o#ndum24 @116
+REPLACE o#ndum25 @117
+REPLACE o#ndum26 @118
+REPLACE o#ndum27 @119
+REPLACE o#ndum28 @120
+REPLACE o#ndum29 @121
+REPLACE o#ndum30 @122
+REPLACE o#ndum31 @123
+REPLACE o#ndum32 @124
+REPLACE o#ndum33 @125
+REPLACE o#ndum34 @126
+REPLACE o#ndum35 @127
+REPLACE o#ndum36 @128
+REPLACE o#ndum37 @129
+REPLACE o#ndum38 @130
+REPLACE o#ndum39 @131
+REPLACE o#ndum40 @132
+/* Severn */
+REPLACE o#sdum01 @133
+REPLACE o#sdum02 @134
+REPLACE o#sdum03 @135
+REPLACE o#sdum04 @136
+REPLACE o#sdum05 @137
+REPLACE o#sdum06 @138
+REPLACE o#sdum07 @139
+REPLACE o#sdum08 @140
+REPLACE o#sdum09 @141
+REPLACE o#sdum10 @142
+REPLACE o#sdum11 @143
+REPLACE o#sdum12 @144
+REPLACE o#sdum13 @145
+REPLACE o#sdum14 @146
+REPLACE o#sdum15 @147
+REPLACE o#sdum16 @148
+REPLACE o#sdum17 @149
+REPLACE o#sdum18 @150
+REPLACE o#sdum19 @151
+REPLACE o#sdum20 @152
+REPLACE o#sdum21 @153
+REPLACE o#sdum22 @154
+REPLACE o#sdum23 @155
+REPLACE o#sdum24 @156
+REPLACE o#sdum25 @157
+REPLACE o#sdum26 @158
+REPLACE o#sdum27 @159
+REPLACE o#sdum28 @160
+REPLACE o#sdum29 @161
+REPLACE o#sdum30 @162
+REPLACE o#sdum31 @163
+REPLACE o#sdum32 @164
+REPLACE o#sdum33 @165
+REPLACE o#sdum34 @166
+REPLACE o#sdum35 @167
+REPLACE o#sdum36 @168
+REPLACE o#sdum37 @169
+REPLACE o#sdum38 @170
+REPLACE o#sdum39 @171
+REPLACE o#sdum40 @172
+/* Teri */
+REPLACE o#tdum01 @173
+REPLACE o#tdum02 @174
+REPLACE o#tdum03 @175
+REPLACE o#tdum04 @176
+REPLACE o#tdum05 @177
+REPLACE o#tdum06 @178
+REPLACE o#tdum07 @179
+REPLACE o#tdum08 @180
+REPLACE o#tdum09 @181
+REPLACE o#tdum10 @182
+REPLACE o#tdum11 @183
+REPLACE o#tdum12 @184
+REPLACE o#tdum13 @185
+REPLACE o#tdum14 @186
+REPLACE o#tdum15 @187
+REPLACE o#tdum16 @188
+REPLACE o#tdum17 @189
+REPLACE o#tdum18 @190
+REPLACE o#tdum19 @191
+REPLACE o#tdum20 @192
+REPLACE o#tdum21 @193
+REPLACE o#tdum22 @194
+REPLACE o#tdum23 @195
+REPLACE o#tdum24 @196
+REPLACE o#tdum25 @197
+REPLACE o#tdum26 @198
+REPLACE o#tdum27 @199
+REPLACE o#tdum28 @200
+REPLACE o#tdum29 @201
+REPLACE o#tdum30 @202
+REPLACE o#tdum31 @203
+REPLACE o#tdum32 @204
+REPLACE o#tdum33 @205
+REPLACE o#tdum34 @206
+REPLACE o#tdum35 @207
+REPLACE o#tdum36 @208
+REPLACE o#tdum37 @209
+REPLACE o#tdum38 @210
+REPLACE o#tdum39 @211
+REPLACE o#tdum40 @212
+
+COMPILE ~IWDNPC/Dialogue/O#Dump.d~
+COMPILE ~IWDNPC/Dialogue/Replace.d~
+COMPILE ~IWDNPC/Dialogue/Interjections.d~
+COMPILE ~IWDNPC/Dialogue/O#StartIWD.d~ USING ~IWDNPC/%s/Dialogue.tra~
+
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9100.are~ THEN BEGIN
+COMPILE ~IWDNPC/Dialogue/O#Dump1.d~
+COMPILE ~IWDNPC/Dialogue/ReplaceHoW.d~
+COMPILE ~IWDNPC/Dialogue/InterjectionsHoW.d~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~ar9700.are~ THEN BEGIN
+COMPILE ~IWDNPC/Dialogue/O#Dump2.d~
+COMPILE ~IWDNPC/Dialogue/ReplaceTotL.d~
+COMPILE ~IWDNPC/Dialogue/InterjectionsTotL.d~
+END
+
+EXTEND_TOP ~O#Holvir.bcs~ ~IWDNPC/Scripts/O#HFix1.baf~
+EXTEND_TOP ~O#Korin.bcs~  ~IWDNPC/Scripts/O#KFix1.baf~
+EXTEND_TOP ~O#Nella.bcs~  ~IWDNPC/Scripts/O#NFix1.baf~
+EXTEND_TOP ~O#Severn.bcs~ ~IWDNPC/Scripts/O#SFix1.baf~
+EXTEND_TOP ~O#Teri.bcs~   ~IWDNPC/Scripts/O#TFix1.baf~
+
+EXTEND_TOP ~AR1006.bcs~ ~IWDNPC/Scripts/AR1006IWD.baf~
+
+AT_NOW ~IWDNPC/Audio/AudioInstall.bat~
+AT_UNINSTALL ~IWDNPC/Audio/AudioUninstall.bat~
+
+END
+
+COMPILE ~IWDNPC/Dialogue/Player.d~
+
+AT_INTERACTIVE_EXIT ~VIEW IWDNPC/Readme-IWDNPC.txt~
+
+PRINT @1
+
+BEGIN @2
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~kitlist.2da~ @245
+
+COPY ~IWDNPC/Characters/O#KorinC.chr~ ~Characters/O#Korin.chr~
+
+BEGIN @3
+SUBCOMPONENT @4
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~kitlist.2da~ @245
+
+COPY ~IWDNPC/Characters/O#NellaC.chr~ ~Characters/O#Nella.chr~
+
+BEGIN @5
+SUBCOMPONENT @4
+
+COPY ~IWDNPC/Characters/O#NellaD.chr~ ~Characters/O#Nella.chr~
+
+BEGIN @6
+SUBCOMPONENT @7
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~kitlist.2da~ @245
+
+COPY ~IWDNPC/Characters/O#SeverF.chr~ ~Characters/O#Severn.chr~
+
+BEGIN @8
+SUBCOMPONENT @7
+
+COPY ~IWDNPC/Characters/O#SeverM.chr~ ~Characters/O#Severn.chr~
+
+BEGIN @9
+SUBCOMPONENT @10
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~kitlist.2da~ @245
+
+COPY ~IWDNPC/Characters/O#TeriT.chr~ ~Characters/O#Teri.chr~
+
+BEGIN @11
+SUBCOMPONENT @10
+
+COPY ~IWDNPC/Characters/O#TeriFM.chr~ ~Characters/O#Teri.chr~
+
+BEGIN @12
+SUBCOMPONENT @10
+
+COPY ~IWDNPC/Characters/O#TeriTM.chr~ ~Characters/O#Teri.chr~
+
+// Alternate class for Holvir
+
+BEGIN @223
+SUBCOMPONENT @242
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kitlist.2da~ @246
+
+COPY ~IWDNPC/Characters/O#HolviC.cre~ ~override/O#Holvir.cre~
+SAY NAME1 @213
+SAY NAME2 @213
+WRITE_ASCII 0x248  ~O#Holvir~ #8  // override
+WRITE_ASCII 0x2cc  ~O#HStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Holvir~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#HolvM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#HolvS~  #8  // small portrait
+SAY MORALE @14
+SAY LEADER @21
+SAY TIRED @23
+SAY BORED @25
+SAY BATTLE_CRY1 @15
+SAY BATTLE_CRY2 @16
+SAY BATTLE_CRY3 @17
+SAY BATTLE_CRY4 @18
+SAY BATTLE_CRY5 @19
+SAY DAMAGE @46
+SAY DYING @49
+SAY HURT @27
+SAY SELECT_COMMON1 @28
+SAY SELECT_COMMON2 @29
+SAY SELECT_COMMON3 @30
+SAY SELECT_COMMON4 @31
+SAY SELECT_COMMON5 @32
+SAY SELECT_COMMON6 @33
+SAY SELECT_ACTION1 @35
+SAY SELECT_ACTION2 @36
+SAY SELECT_ACTION3 @37
+SAY SELECT_ACTION4 @38
+SAY SELECT_ACTION5 @39
+SAY SELECT_ACTION6 @40
+SAY SELECT_ACTION7 @41
+SAY SELECT_RARE1 @42
+SAY SELECT_RARE2 @43
+SAY BIO @218
+
+BEGIN @224
+SUBCOMPONENT @242
+
+COPY ~IWDNPC/Characters/O#HolviI.cre~ ~override/O#Holvir.cre~
+SAY NAME1 @213
+SAY NAME2 @213
+WRITE_ASCII 0x248  ~O#Holvir~ #8  // override
+WRITE_ASCII 0x2cc  ~O#HStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Holvir~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#HolvM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#HolvS~  #8  // small portrait
+SAY MORALE @14
+SAY LEADER @21
+SAY TIRED @23
+SAY BORED @25
+SAY BATTLE_CRY1 @15
+SAY BATTLE_CRY2 @16
+SAY BATTLE_CRY3 @17
+SAY BATTLE_CRY4 @18
+SAY BATTLE_CRY5 @19
+SAY DAMAGE @46
+SAY DYING @49
+SAY HURT @27
+SAY SELECT_COMMON1 @28
+SAY SELECT_COMMON2 @29
+SAY SELECT_COMMON3 @30
+SAY SELECT_COMMON4 @31
+SAY SELECT_COMMON5 @32
+SAY SELECT_COMMON6 @33
+SAY SELECT_ACTION1 @35
+SAY SELECT_ACTION2 @36
+SAY SELECT_ACTION3 @37
+SAY SELECT_ACTION4 @38
+SAY SELECT_ACTION5 @39
+SAY SELECT_ACTION6 @40
+SAY SELECT_ACTION7 @41
+SAY SELECT_RARE1 @42
+SAY SELECT_RARE2 @43
+SAY BIO @218
+
+BEGIN @225
+SUBCOMPONENT @242
+
+COPY ~IWDNPC/Characters/O#HolviU.cre~ ~override/O#Holvir.cre~
+SAY NAME1 @213
+SAY NAME2 @213
+WRITE_ASCII 0x248  ~O#Holvir~ #8  // override
+WRITE_ASCII 0x2cc  ~O#HStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Holvir~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#HolvM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#HolvS~  #8  // small portrait
+SAY MORALE @14
+SAY LEADER @21
+SAY TIRED @23
+SAY BORED @25
+SAY BATTLE_CRY1 @15
+SAY BATTLE_CRY2 @16
+SAY BATTLE_CRY3 @17
+SAY BATTLE_CRY4 @18
+SAY BATTLE_CRY5 @19
+SAY DAMAGE @46
+SAY DYING @49
+SAY HURT @27
+SAY SELECT_COMMON1 @28
+SAY SELECT_COMMON2 @29
+SAY SELECT_COMMON3 @30
+SAY SELECT_COMMON4 @31
+SAY SELECT_COMMON5 @32
+SAY SELECT_COMMON6 @33
+SAY SELECT_ACTION1 @35
+SAY SELECT_ACTION2 @36
+SAY SELECT_ACTION3 @37
+SAY SELECT_ACTION4 @38
+SAY SELECT_ACTION5 @39
+SAY SELECT_ACTION6 @40
+SAY SELECT_ACTION7 @41
+SAY SELECT_RARE1 @42
+SAY SELECT_RARE2 @43
+SAY BIO @218
+
+// Alternate class for Korin
+
+BEGIN @226
+SUBCOMPONENT @247
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kitlist.2da~ @246
+
+COPY ~IWDNPC/Characters/O#KorinA.cre~ ~override/O#Korin.cre~
+SAY NAME1 @214
+SAY NAME2 @214
+WRITE_ASCII 0x248  ~O#Korin~  #8  // override
+WRITE_ASCII 0x2cc  ~O#KStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Korin~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#KoriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#KoriS~  #8  // small portrait
+SAY MORALE @53
+SAY LEADER @60
+SAY TIRED @63
+SAY BORED @65
+SAY BATTLE_CRY1 @55
+SAY BATTLE_CRY2 @56
+SAY BATTLE_CRY3 @57
+SAY BATTLE_CRY4 @58
+SAY BATTLE_CRY5 @59
+SAY DAMAGE @86
+SAY DYING @89
+SAY HURT @67
+SAY SELECT_COMMON1 @68
+SAY SELECT_COMMON2 @69
+SAY SELECT_COMMON3 @70
+SAY SELECT_COMMON4 @71
+SAY SELECT_COMMON5 @72
+SAY SELECT_COMMON6 @73
+SAY SELECT_ACTION1 @75
+SAY SELECT_ACTION2 @76
+SAY SELECT_ACTION3 @77
+SAY SELECT_ACTION4 @78
+SAY SELECT_ACTION5 @79
+SAY SELECT_ACTION6 @80
+SAY SELECT_ACTION7 @81
+SAY SELECT_RARE1 @82
+SAY SELECT_RARE2 @83
+SAY BIO @219
+
+BEGIN @227
+SUBCOMPONENT @247
+
+COPY ~IWDNPC/Characters/O#KorinB.cre~ ~override/O#Korin.cre~
+SAY NAME1 @214
+SAY NAME2 @214
+WRITE_ASCII 0x248  ~O#Korin~  #8  // override
+WRITE_ASCII 0x2cc  ~O#KStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Korin~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#KoriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#KoriS~  #8  // small portrait
+SAY MORALE @53
+SAY LEADER @60
+SAY TIRED @63
+SAY BORED @65
+SAY BATTLE_CRY1 @55
+SAY BATTLE_CRY2 @56
+SAY BATTLE_CRY3 @57
+SAY BATTLE_CRY4 @58
+SAY BATTLE_CRY5 @59
+SAY DAMAGE @86
+SAY DYING @89
+SAY HURT @67
+SAY SELECT_COMMON1 @68
+SAY SELECT_COMMON2 @69
+SAY SELECT_COMMON3 @70
+SAY SELECT_COMMON4 @71
+SAY SELECT_COMMON5 @72
+SAY SELECT_COMMON6 @73
+SAY SELECT_ACTION1 @75
+SAY SELECT_ACTION2 @76
+SAY SELECT_ACTION3 @77
+SAY SELECT_ACTION4 @78
+SAY SELECT_ACTION5 @79
+SAY SELECT_ACTION6 @80
+SAY SELECT_ACTION7 @81
+SAY SELECT_RARE1 @82
+SAY SELECT_RARE2 @83
+SAY BIO @219
+
+BEGIN @228
+SUBCOMPONENT @247
+
+COPY ~IWDNPC/Characters/O#KorinS.cre~ ~override/O#Korin.cre~
+SAY NAME1 @214
+SAY NAME2 @214
+WRITE_ASCII 0x248  ~O#Korin~  #8  // override
+WRITE_ASCII 0x2cc  ~O#KStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Korin~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#KoriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#KoriS~  #8  // small portrait
+SAY MORALE @53
+SAY LEADER @60
+SAY TIRED @63
+SAY BORED @65
+SAY BATTLE_CRY1 @55
+SAY BATTLE_CRY2 @56
+SAY BATTLE_CRY3 @57
+SAY BATTLE_CRY4 @58
+SAY BATTLE_CRY5 @59
+SAY DAMAGE @86
+SAY DYING @89
+SAY HURT @67
+SAY SELECT_COMMON1 @68
+SAY SELECT_COMMON2 @69
+SAY SELECT_COMMON3 @70
+SAY SELECT_COMMON4 @71
+SAY SELECT_COMMON5 @72
+SAY SELECT_COMMON6 @73
+SAY SELECT_ACTION1 @75
+SAY SELECT_ACTION2 @76
+SAY SELECT_ACTION3 @77
+SAY SELECT_ACTION4 @78
+SAY SELECT_ACTION5 @79
+SAY SELECT_ACTION6 @80
+SAY SELECT_ACTION7 @81
+SAY SELECT_RARE1 @82
+SAY SELECT_RARE2 @83
+SAY BIO @219
+
+BEGIN @241
+SUBCOMPONENT @247
+
+COPY ~IWDNPC/Characters/O#KorinC.cre~ ~override/O#Korin.cre~
+SAY NAME1 @214
+SAY NAME2 @214
+WRITE_ASCII 0x248  ~O#Korin~  #8  // override
+WRITE_ASCII 0x2cc  ~O#KStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Korin~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#KoriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#KoriS~  #8  // small portrait
+SAY MORALE @53
+SAY LEADER @60
+SAY TIRED @63
+SAY BORED @65
+SAY BATTLE_CRY1 @55
+SAY BATTLE_CRY2 @56
+SAY BATTLE_CRY3 @57
+SAY BATTLE_CRY4 @58
+SAY BATTLE_CRY5 @59
+SAY DAMAGE @86
+SAY DYING @89
+SAY HURT @67
+SAY SELECT_COMMON1 @68
+SAY SELECT_COMMON2 @69
+SAY SELECT_COMMON3 @70
+SAY SELECT_COMMON4 @71
+SAY SELECT_COMMON5 @72
+SAY SELECT_COMMON6 @73
+SAY SELECT_ACTION1 @75
+SAY SELECT_ACTION2 @76
+SAY SELECT_ACTION3 @77
+SAY SELECT_ACTION4 @78
+SAY SELECT_ACTION5 @79
+SAY SELECT_ACTION6 @80
+SAY SELECT_ACTION7 @81
+SAY SELECT_RARE1 @82
+SAY SELECT_RARE2 @83
+SAY BIO @219
+
+// Alternate class for Nella
+
+BEGIN @229
+SUBCOMPONENT @249
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kitlist.2da~ @246
+
+COPY ~IWDNPC/Characters/O#NellaB.cre~ ~override/O#Nella.cre~
+SAY NAME1 @215
+SAY NAME2 @215
+WRITE_ASCII 0x248  ~O#Nella~  #8  // override
+WRITE_ASCII 0x2cc  ~O#NStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Nella~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#NellM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#NellS~  #8  // small portrait
+SAY MORALE @93
+SAY LEADER @100
+SAY TIRED @103
+SAY BORED @104
+SAY BATTLE_CRY1 @95
+SAY BATTLE_CRY2 @96
+SAY BATTLE_CRY3 @97
+SAY BATTLE_CRY4 @98
+SAY BATTLE_CRY5 @99
+SAY DAMAGE @126
+SAY DYING @130
+SAY HURT @106
+SAY SELECT_COMMON1 @108
+SAY SELECT_COMMON2 @109
+SAY SELECT_COMMON3 @110
+SAY SELECT_COMMON4 @111
+SAY SELECT_COMMON5 @112
+SAY SELECT_COMMON6 @113
+SAY SELECT_ACTION1 @115
+SAY SELECT_ACTION2 @116
+SAY SELECT_ACTION3 @117
+SAY SELECT_ACTION4 @118
+SAY SELECT_ACTION5 @119
+SAY SELECT_ACTION6 @120
+SAY SELECT_ACTION7 @121
+SAY SELECT_RARE1 @122
+SAY SELECT_RARE2 @123
+SAY BIO @220
+
+BEGIN @230
+SUBCOMPONENT @249
+
+COPY ~IWDNPC/Characters/O#NellaK.cre~ ~override/O#Nella.cre~
+SAY NAME1 @215
+SAY NAME2 @215
+WRITE_ASCII 0x248  ~O#Nella~  #8  // override
+WRITE_ASCII 0x2cc  ~O#NStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Nella~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#NellM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#NellS~  #8  // small portrait
+SAY MORALE @93
+SAY LEADER @100
+SAY TIRED @103
+SAY BORED @104
+SAY BATTLE_CRY1 @95
+SAY BATTLE_CRY2 @96
+SAY BATTLE_CRY3 @97
+SAY BATTLE_CRY4 @98
+SAY BATTLE_CRY5 @99
+SAY DAMAGE @126
+SAY DYING @130
+SAY HURT @106
+SAY SELECT_COMMON1 @108
+SAY SELECT_COMMON2 @109
+SAY SELECT_COMMON3 @110
+SAY SELECT_COMMON4 @111
+SAY SELECT_COMMON5 @112
+SAY SELECT_COMMON6 @113
+SAY SELECT_ACTION1 @115
+SAY SELECT_ACTION2 @116
+SAY SELECT_ACTION3 @117
+SAY SELECT_ACTION4 @118
+SAY SELECT_ACTION5 @119
+SAY SELECT_ACTION6 @120
+SAY SELECT_ACTION7 @121
+SAY SELECT_RARE1 @122
+SAY SELECT_RARE2 @123
+SAY BIO @220
+
+BEGIN @231
+SUBCOMPONENT @249
+
+COPY ~IWDNPC/Characters/O#NellaW.cre~ ~override/O#Nella.cre~
+SAY NAME1 @215
+SAY NAME2 @215
+WRITE_ASCII 0x248  ~O#Nella~  #8  // override
+WRITE_ASCII 0x2cc  ~O#NStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Nella~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#NellM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#NellS~  #8  // small portrait
+SAY MORALE @93
+SAY LEADER @100
+SAY TIRED @103
+SAY BORED @104
+SAY BATTLE_CRY1 @95
+SAY BATTLE_CRY2 @96
+SAY BATTLE_CRY3 @97
+SAY BATTLE_CRY4 @98
+SAY BATTLE_CRY5 @99
+SAY DAMAGE @126
+SAY DYING @130
+SAY HURT @106
+SAY SELECT_COMMON1 @108
+SAY SELECT_COMMON2 @109
+SAY SELECT_COMMON3 @110
+SAY SELECT_COMMON4 @111
+SAY SELECT_COMMON5 @112
+SAY SELECT_COMMON6 @113
+SAY SELECT_ACTION1 @115
+SAY SELECT_ACTION2 @116
+SAY SELECT_ACTION3 @117
+SAY SELECT_ACTION4 @118
+SAY SELECT_ACTION5 @119
+SAY SELECT_ACTION6 @120
+SAY SELECT_ACTION7 @121
+SAY SELECT_RARE1 @122
+SAY SELECT_RARE2 @123
+SAY BIO @220
+
+BEGIN @3
+SUBCOMPONENT @249
+
+COPY ~IWDNPC/Characters/O#NellaC.cre~ ~override/O#Nella.cre~
+SAY NAME1 @215
+SAY NAME2 @215
+WRITE_ASCII 0x248  ~O#Nella~  #8  // override
+WRITE_ASCII 0x2cc  ~O#NStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Nella~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#NellM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#NellS~  #8  // small portrait
+SAY MORALE @93
+SAY LEADER @100
+SAY TIRED @103
+SAY BORED @104
+SAY BATTLE_CRY1 @95
+SAY BATTLE_CRY2 @96
+SAY BATTLE_CRY3 @97
+SAY BATTLE_CRY4 @98
+SAY BATTLE_CRY5 @99
+SAY DAMAGE @126
+SAY DYING @130
+SAY HURT @106
+SAY SELECT_COMMON1 @108
+SAY SELECT_COMMON2 @109
+SAY SELECT_COMMON3 @110
+SAY SELECT_COMMON4 @111
+SAY SELECT_COMMON5 @112
+SAY SELECT_COMMON6 @113
+SAY SELECT_ACTION1 @115
+SAY SELECT_ACTION2 @116
+SAY SELECT_ACTION3 @117
+SAY SELECT_ACTION4 @118
+SAY SELECT_ACTION5 @119
+SAY SELECT_ACTION6 @120
+SAY SELECT_ACTION7 @121
+SAY SELECT_RARE1 @122
+SAY SELECT_RARE2 @123
+SAY BIO @220
+
+BEGIN @5
+SUBCOMPONENT @249
+
+COPY ~IWDNPC/Characters/O#NellaD.cre~ ~override/O#Nella.cre~
+SAY NAME1 @215
+SAY NAME2 @215
+WRITE_ASCII 0x248  ~O#Nella~  #8  // override
+WRITE_ASCII 0x2cc  ~O#NStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Nella~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#NellM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#NellS~  #8  // small portrait
+SAY MORALE @93
+SAY LEADER @100
+SAY TIRED @103
+SAY BORED @104
+SAY BATTLE_CRY1 @95
+SAY BATTLE_CRY2 @96
+SAY BATTLE_CRY3 @97
+SAY BATTLE_CRY4 @98
+SAY BATTLE_CRY5 @99
+SAY DAMAGE @126
+SAY DYING @130
+SAY HURT @106
+SAY SELECT_COMMON1 @108
+SAY SELECT_COMMON2 @109
+SAY SELECT_COMMON3 @110
+SAY SELECT_COMMON4 @111
+SAY SELECT_COMMON5 @112
+SAY SELECT_COMMON6 @113
+SAY SELECT_ACTION1 @115
+SAY SELECT_ACTION2 @116
+SAY SELECT_ACTION3 @117
+SAY SELECT_ACTION4 @118
+SAY SELECT_ACTION5 @119
+SAY SELECT_ACTION6 @120
+SAY SELECT_ACTION7 @121
+SAY SELECT_RARE1 @122
+SAY SELECT_RARE2 @123
+SAY BIO @220
+
+BEGIN @232
+SUBCOMPONENT @249
+
+COPY ~IWDNPC/Characters/O#NellaM.cre~ ~override/O#Nella.cre~
+SAY NAME1 @215
+SAY NAME2 @215
+WRITE_ASCII 0x248  ~O#Nella~  #8  // override
+WRITE_ASCII 0x2cc  ~O#NStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Nella~  #32 // death variable
+WRITE_ASCII 0x3c   ~O#NellM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#NellS~  #8  // small portrait
+SAY MORALE @93
+SAY LEADER @100
+SAY TIRED @103
+SAY BORED @104
+SAY BATTLE_CRY1 @95
+SAY BATTLE_CRY2 @96
+SAY BATTLE_CRY3 @97
+SAY BATTLE_CRY4 @98
+SAY BATTLE_CRY5 @99
+SAY DAMAGE @126
+SAY DYING @130
+SAY HURT @106
+SAY SELECT_COMMON1 @108
+SAY SELECT_COMMON2 @109
+SAY SELECT_COMMON3 @110
+SAY SELECT_COMMON4 @111
+SAY SELECT_COMMON5 @112
+SAY SELECT_COMMON6 @113
+SAY SELECT_ACTION1 @115
+SAY SELECT_ACTION2 @116
+SAY SELECT_ACTION3 @117
+SAY SELECT_ACTION4 @118
+SAY SELECT_ACTION5 @119
+SAY SELECT_ACTION6 @120
+SAY SELECT_ACTION7 @121
+SAY SELECT_RARE1 @122
+SAY SELECT_RARE2 @123
+SAY BIO @220
+
+// Alternate class for Severn
+
+BEGIN @233
+SUBCOMPONENT @250
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kitlist.2da~ @246
+
+COPY ~IWDNPC/Characters/O#SeverB.cre~ ~override/O#Severn.cre~
+SAY NAME1 @216
+SAY NAME2 @216
+WRITE_ASCII 0x248  ~O#Severn~ #8  // override
+WRITE_ASCII 0x2cc  ~O#SStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Severn~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#SeveM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#SeveS~  #8  // small portrait
+SAY MORALE @134
+SAY LEADER @141
+SAY TIRED @143
+SAY BORED @144
+SAY BATTLE_CRY1 @135
+SAY BATTLE_CRY2 @136
+SAY BATTLE_CRY3 @137
+SAY BATTLE_CRY4 @138
+SAY BATTLE_CRY5 @139
+SAY DAMAGE @166
+SAY DYING @169
+SAY HURT @146
+SAY SELECT_COMMON1 @148
+SAY SELECT_COMMON2 @149
+SAY SELECT_COMMON3 @150
+SAY SELECT_COMMON4 @151
+SAY SELECT_COMMON5 @152
+SAY SELECT_COMMON6 @153
+SAY SELECT_ACTION1 @155
+SAY SELECT_ACTION2 @156
+SAY SELECT_ACTION3 @157
+SAY SELECT_ACTION4 @158
+SAY SELECT_ACTION5 @159
+SAY SELECT_ACTION6 @160
+SAY SELECT_ACTION7 @161
+SAY SELECT_RARE1 @162
+SAY SELECT_RARE2 @163
+SAY BIO @221
+
+BEGIN @234
+SUBCOMPONENT @250
+
+COPY ~IWDNPC/Characters/O#SeverJ.cre~ ~override/O#Severn.cre~
+SAY NAME1 @216
+SAY NAME2 @216
+WRITE_ASCII 0x248  ~O#Severn~ #8  // override
+WRITE_ASCII 0x2cc  ~O#SStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Severn~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#SeveM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#SeveS~  #8  // small portrait
+SAY MORALE @134
+SAY LEADER @141
+SAY TIRED @143
+SAY BORED @144
+SAY BATTLE_CRY1 @135
+SAY BATTLE_CRY2 @136
+SAY BATTLE_CRY3 @137
+SAY BATTLE_CRY4 @138
+SAY BATTLE_CRY5 @139
+SAY DAMAGE @166
+SAY DYING @169
+SAY HURT @146
+SAY SELECT_COMMON1 @148
+SAY SELECT_COMMON2 @149
+SAY SELECT_COMMON3 @150
+SAY SELECT_COMMON4 @151
+SAY SELECT_COMMON5 @152
+SAY SELECT_COMMON6 @153
+SAY SELECT_ACTION1 @155
+SAY SELECT_ACTION2 @156
+SAY SELECT_ACTION3 @157
+SAY SELECT_ACTION4 @158
+SAY SELECT_ACTION5 @159
+SAY SELECT_ACTION6 @160
+SAY SELECT_ACTION7 @161
+SAY SELECT_RARE1 @162
+SAY SELECT_RARE2 @163
+SAY BIO @221
+
+BEGIN @235
+SUBCOMPONENT @250
+
+COPY ~IWDNPC/Characters/O#SeveSk.cre~ ~override/O#Severn.cre~
+SAY NAME1 @216
+SAY NAME2 @216
+WRITE_ASCII 0x248  ~O#Severn~ #8  // override
+WRITE_ASCII 0x2cc  ~O#SStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Severn~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#SeveM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#SeveS~  #8  // small portrait
+SAY MORALE @134
+SAY LEADER @141
+SAY TIRED @143
+SAY BORED @144
+SAY BATTLE_CRY1 @135
+SAY BATTLE_CRY2 @136
+SAY BATTLE_CRY3 @137
+SAY BATTLE_CRY4 @138
+SAY BATTLE_CRY5 @139
+SAY DAMAGE @166
+SAY DYING @169
+SAY HURT @146
+SAY SELECT_COMMON1 @148
+SAY SELECT_COMMON2 @149
+SAY SELECT_COMMON3 @150
+SAY SELECT_COMMON4 @151
+SAY SELECT_COMMON5 @152
+SAY SELECT_COMMON6 @153
+SAY SELECT_ACTION1 @155
+SAY SELECT_ACTION2 @156
+SAY SELECT_ACTION3 @157
+SAY SELECT_ACTION4 @158
+SAY SELECT_ACTION5 @159
+SAY SELECT_ACTION6 @160
+SAY SELECT_ACTION7 @161
+SAY SELECT_RARE1 @162
+SAY SELECT_RARE2 @163
+SAY BIO @221
+
+BEGIN @6
+SUBCOMPONENT @250
+
+COPY ~IWDNPC/Characters/O#SeverF.cre~ ~override/O#Severn.cre~
+SAY NAME1 @216
+SAY NAME2 @216
+WRITE_ASCII 0x248  ~O#Severn~ #8  // override
+WRITE_ASCII 0x2cc  ~O#SStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Severn~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#SeveM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#SeveS~  #8  // small portrait
+SAY MORALE @134
+SAY LEADER @141
+SAY TIRED @143
+SAY BORED @144
+SAY BATTLE_CRY1 @135
+SAY BATTLE_CRY2 @136
+SAY BATTLE_CRY3 @137
+SAY BATTLE_CRY4 @138
+SAY BATTLE_CRY5 @139
+SAY DAMAGE @166
+SAY DYING @169
+SAY HURT @146
+SAY SELECT_COMMON1 @148
+SAY SELECT_COMMON2 @149
+SAY SELECT_COMMON3 @150
+SAY SELECT_COMMON4 @151
+SAY SELECT_COMMON5 @152
+SAY SELECT_COMMON6 @153
+SAY SELECT_ACTION1 @155
+SAY SELECT_ACTION2 @156
+SAY SELECT_ACTION3 @157
+SAY SELECT_ACTION4 @158
+SAY SELECT_ACTION5 @159
+SAY SELECT_ACTION6 @160
+SAY SELECT_ACTION7 @161
+SAY SELECT_RARE1 @162
+SAY SELECT_RARE2 @163
+SAY BIO @221
+
+BEGIN @236
+SUBCOMPONENT @250
+
+COPY ~IWDNPC/Characters/O#SeveSo.cre~ ~override/O#Severn.cre~
+SAY NAME1 @216
+SAY NAME2 @216
+WRITE_ASCII 0x248  ~O#Severn~ #8  // override
+WRITE_ASCII 0x2cc  ~O#SStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Severn~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#SeveM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#SeveS~  #8  // small portrait
+SAY MORALE @134
+SAY LEADER @141
+SAY TIRED @143
+SAY BORED @144
+SAY BATTLE_CRY1 @135
+SAY BATTLE_CRY2 @136
+SAY BATTLE_CRY3 @137
+SAY BATTLE_CRY4 @138
+SAY BATTLE_CRY5 @139
+SAY DAMAGE @166
+SAY DYING @169
+SAY HURT @146
+SAY SELECT_COMMON1 @148
+SAY SELECT_COMMON2 @149
+SAY SELECT_COMMON3 @150
+SAY SELECT_COMMON4 @151
+SAY SELECT_COMMON5 @152
+SAY SELECT_COMMON6 @153
+SAY SELECT_ACTION1 @155
+SAY SELECT_ACTION2 @156
+SAY SELECT_ACTION3 @157
+SAY SELECT_ACTION4 @158
+SAY SELECT_ACTION5 @159
+SAY SELECT_ACTION6 @160
+SAY SELECT_ACTION7 @161
+SAY SELECT_RARE1 @162
+SAY SELECT_RARE2 @163
+SAY BIO @221
+
+BEGIN @8
+SUBCOMPONENT @250
+
+COPY ~IWDNPC/Characters/O#SeverM.cre~ ~override/O#Severn.cre~
+SAY NAME1 @216
+SAY NAME2 @216
+WRITE_ASCII 0x248  ~O#Severn~ #8  // override
+WRITE_ASCII 0x2cc  ~O#SStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Severn~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#SeveM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#SeveS~  #8  // small portrait
+SAY MORALE @134
+SAY LEADER @141
+SAY TIRED @143
+SAY BORED @144
+SAY BATTLE_CRY1 @135
+SAY BATTLE_CRY2 @136
+SAY BATTLE_CRY3 @137
+SAY BATTLE_CRY4 @138
+SAY BATTLE_CRY5 @139
+SAY DAMAGE @166
+SAY DYING @169
+SAY HURT @146
+SAY SELECT_COMMON1 @148
+SAY SELECT_COMMON2 @149
+SAY SELECT_COMMON3 @150
+SAY SELECT_COMMON4 @151
+SAY SELECT_COMMON5 @152
+SAY SELECT_COMMON6 @153
+SAY SELECT_ACTION1 @155
+SAY SELECT_ACTION2 @156
+SAY SELECT_ACTION3 @157
+SAY SELECT_ACTION4 @158
+SAY SELECT_ACTION5 @159
+SAY SELECT_ACTION6 @160
+SAY SELECT_ACTION7 @161
+SAY SELECT_RARE1 @162
+SAY SELECT_RARE2 @163
+SAY BIO @221
+
+BEGIN @237
+SUBCOMPONENT @250
+
+COPY ~IWDNPC/Characters/O#SeverW.cre~ ~override/O#Severn.cre~
+SAY NAME1 @216
+SAY NAME2 @216
+WRITE_ASCII 0x248  ~O#Severn~ #8  // override
+WRITE_ASCII 0x2cc  ~O#SStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Severn~ #32 // death variable
+WRITE_ASCII 0x3c   ~O#SeveM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#SeveS~  #8  // small portrait
+SAY MORALE @134
+SAY LEADER @141
+SAY TIRED @143
+SAY BORED @144
+SAY BATTLE_CRY1 @135
+SAY BATTLE_CRY2 @136
+SAY BATTLE_CRY3 @137
+SAY BATTLE_CRY4 @138
+SAY BATTLE_CRY5 @139
+SAY DAMAGE @166
+SAY DYING @169
+SAY HURT @146
+SAY SELECT_COMMON1 @148
+SAY SELECT_COMMON2 @149
+SAY SELECT_COMMON3 @150
+SAY SELECT_COMMON4 @151
+SAY SELECT_COMMON5 @152
+SAY SELECT_COMMON6 @153
+SAY SELECT_ACTION1 @155
+SAY SELECT_ACTION2 @156
+SAY SELECT_ACTION3 @157
+SAY SELECT_ACTION4 @158
+SAY SELECT_ACTION5 @159
+SAY SELECT_ACTION6 @160
+SAY SELECT_ACTION7 @161
+SAY SELECT_RARE1 @162
+SAY SELECT_RARE2 @163
+SAY BIO @221
+
+// Alternate class for Teri
+
+BEGIN @238
+SUBCOMPONENT @251
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kitlist.2da~ @246
+
+COPY ~IWDNPC/Characters/O#TeriA.cre~ ~override/O#Teri.cre~
+SAY NAME1 @217
+SAY NAME2 @217
+WRITE_ASCII 0x248  ~O#Teri~   #8  // override
+WRITE_ASCII 0x2cc  ~O#TStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Teri~   #32 // death variable
+WRITE_ASCII 0x3c   ~O#TeriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#TeriS~  #8  // small portrait
+SAY MORALE @173
+SAY LEADER @180
+SAY TIRED @183
+SAY BORED @185
+SAY BATTLE_CRY1 @175
+SAY BATTLE_CRY2 @176
+SAY BATTLE_CRY3 @177
+SAY BATTLE_CRY4 @178
+SAY BATTLE_CRY5 @179
+SAY DAMAGE @206
+SAY DYING @210
+SAY HURT @186
+SAY SELECT_COMMON1 @188
+SAY SELECT_COMMON2 @189
+SAY SELECT_COMMON3 @190
+SAY SELECT_COMMON4 @191
+SAY SELECT_COMMON5 @192
+SAY SELECT_COMMON6 @193
+SAY SELECT_ACTION1 @195
+SAY SELECT_ACTION2 @196
+SAY SELECT_ACTION3 @197
+SAY SELECT_ACTION4 @198
+SAY SELECT_ACTION5 @199
+SAY SELECT_ACTION6 @200
+SAY SELECT_ACTION7 @201
+SAY SELECT_RARE1 @202
+SAY SELECT_RARE2 @203
+SAY BIO @222
+
+BEGIN @239
+SUBCOMPONENT @251
+
+COPY ~IWDNPC/Characters/O#TeriB.cre~ ~override/O#Teri.cre~
+SAY NAME1 @217
+SAY NAME2 @217
+WRITE_ASCII 0x248  ~O#Teri~   #8  // override
+WRITE_ASCII 0x2cc  ~O#TStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Teri~   #32 // death variable
+WRITE_ASCII 0x3c   ~O#TeriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#TeriS~  #8  // small portrait
+SAY MORALE @173
+SAY LEADER @180
+SAY TIRED @183
+SAY BORED @185
+SAY BATTLE_CRY1 @175
+SAY BATTLE_CRY2 @176
+SAY BATTLE_CRY3 @177
+SAY BATTLE_CRY4 @178
+SAY BATTLE_CRY5 @179
+SAY DAMAGE @206
+SAY DYING @210
+SAY HURT @186
+SAY SELECT_COMMON1 @188
+SAY SELECT_COMMON2 @189
+SAY SELECT_COMMON3 @190
+SAY SELECT_COMMON4 @191
+SAY SELECT_COMMON5 @192
+SAY SELECT_COMMON6 @193
+SAY SELECT_ACTION1 @195
+SAY SELECT_ACTION2 @196
+SAY SELECT_ACTION3 @197
+SAY SELECT_ACTION4 @198
+SAY SELECT_ACTION5 @199
+SAY SELECT_ACTION6 @200
+SAY SELECT_ACTION7 @201
+SAY SELECT_RARE1 @202
+SAY SELECT_RARE2 @203
+SAY BIO @222
+
+BEGIN @240
+SUBCOMPONENT @251
+
+COPY ~IWDNPC/Characters/O#TeriS.cre~ ~override/O#Teri.cre~
+SAY NAME1 @217
+SAY NAME2 @217
+WRITE_ASCII 0x248  ~O#Teri~   #8  // override
+WRITE_ASCII 0x2cc  ~O#TStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Teri~   #32 // death variable
+WRITE_ASCII 0x3c   ~O#TeriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#TeriS~  #8  // small portrait
+SAY MORALE @173
+SAY LEADER @180
+SAY TIRED @183
+SAY BORED @185
+SAY BATTLE_CRY1 @175
+SAY BATTLE_CRY2 @176
+SAY BATTLE_CRY3 @177
+SAY BATTLE_CRY4 @178
+SAY BATTLE_CRY5 @179
+SAY DAMAGE @206
+SAY DYING @210
+SAY HURT @186
+SAY SELECT_COMMON1 @188
+SAY SELECT_COMMON2 @189
+SAY SELECT_COMMON3 @190
+SAY SELECT_COMMON4 @191
+SAY SELECT_COMMON5 @192
+SAY SELECT_COMMON6 @193
+SAY SELECT_ACTION1 @195
+SAY SELECT_ACTION2 @196
+SAY SELECT_ACTION3 @197
+SAY SELECT_ACTION4 @198
+SAY SELECT_ACTION5 @199
+SAY SELECT_ACTION6 @200
+SAY SELECT_ACTION7 @201
+SAY SELECT_RARE1 @202
+SAY SELECT_RARE2 @203
+SAY BIO @222
+
+BEGIN @9
+SUBCOMPONENT @251
+
+COPY ~IWDNPC/Characters/O#TeriT.cre~ ~override/O#Teri.cre~
+SAY NAME1 @217
+SAY NAME2 @217
+WRITE_ASCII 0x248  ~O#Teri~   #8  // override
+WRITE_ASCII 0x2cc  ~O#TStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Teri~   #32 // death variable
+WRITE_ASCII 0x3c   ~O#TeriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#TeriS~  #8  // small portrait
+SAY MORALE @173
+SAY LEADER @180
+SAY TIRED @183
+SAY BORED @185
+SAY BATTLE_CRY1 @175
+SAY BATTLE_CRY2 @176
+SAY BATTLE_CRY3 @177
+SAY BATTLE_CRY4 @178
+SAY BATTLE_CRY5 @179
+SAY DAMAGE @206
+SAY DYING @210
+SAY HURT @186
+SAY SELECT_COMMON1 @188
+SAY SELECT_COMMON2 @189
+SAY SELECT_COMMON3 @190
+SAY SELECT_COMMON4 @191
+SAY SELECT_COMMON5 @192
+SAY SELECT_COMMON6 @193
+SAY SELECT_ACTION1 @195
+SAY SELECT_ACTION2 @196
+SAY SELECT_ACTION3 @197
+SAY SELECT_ACTION4 @198
+SAY SELECT_ACTION5 @199
+SAY SELECT_ACTION6 @200
+SAY SELECT_ACTION7 @201
+SAY SELECT_RARE1 @202
+SAY SELECT_RARE2 @203
+SAY BIO @222
+
+BEGIN @11
+SUBCOMPONENT @251
+
+COPY ~IWDNPC/Characters/O#TeriFM.cre~ ~override/O#Teri.cre~
+SAY NAME1 @217
+SAY NAME2 @217
+WRITE_ASCII 0x248  ~O#Teri~   #8  // override
+WRITE_ASCII 0x2cc  ~O#TStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Teri~   #32 // death variable
+WRITE_ASCII 0x3c   ~O#TeriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#TeriS~  #8  // small portrait
+SAY MORALE @173
+SAY LEADER @180
+SAY TIRED @183
+SAY BORED @185
+SAY BATTLE_CRY1 @175
+SAY BATTLE_CRY2 @176
+SAY BATTLE_CRY3 @177
+SAY BATTLE_CRY4 @178
+SAY BATTLE_CRY5 @179
+SAY DAMAGE @206
+SAY DYING @210
+SAY HURT @186
+SAY SELECT_COMMON1 @188
+SAY SELECT_COMMON2 @189
+SAY SELECT_COMMON3 @190
+SAY SELECT_COMMON4 @191
+SAY SELECT_COMMON5 @192
+SAY SELECT_COMMON6 @193
+SAY SELECT_ACTION1 @195
+SAY SELECT_ACTION2 @196
+SAY SELECT_ACTION3 @197
+SAY SELECT_ACTION4 @198
+SAY SELECT_ACTION5 @199
+SAY SELECT_ACTION6 @200
+SAY SELECT_ACTION7 @201
+SAY SELECT_RARE1 @202
+SAY SELECT_RARE2 @203
+SAY BIO @222
+
+BEGIN @12
+SUBCOMPONENT @251
+
+COPY ~IWDNPC/Characters/O#TeriTM.cre~ ~override/O#Teri.cre~
+SAY NAME1 @217
+SAY NAME2 @217
+WRITE_ASCII 0x248  ~O#Teri~   #8  // override
+WRITE_ASCII 0x2cc  ~O#TStart~ #8  // dialogue
+WRITE_ASCII 0x280  ~O#Teri~   #32 // death variable
+WRITE_ASCII 0x3c   ~O#TeriM~  #8  // large portrait
+WRITE_ASCII 0X34   ~O#TeriS~  #8  // small portrait
+SAY MORALE @173
+SAY LEADER @180
+SAY TIRED @183
+SAY BORED @185
+SAY BATTLE_CRY1 @175
+SAY BATTLE_CRY2 @176
+SAY BATTLE_CRY3 @177
+SAY BATTLE_CRY4 @178
+SAY BATTLE_CRY5 @179
+SAY DAMAGE @206
+SAY DYING @210
+SAY HURT @186
+SAY SELECT_COMMON1 @188
+SAY SELECT_COMMON2 @189
+SAY SELECT_COMMON3 @190
+SAY SELECT_COMMON4 @191
+SAY SELECT_COMMON5 @192
+SAY SELECT_COMMON6 @193
+SAY SELECT_ACTION1 @195
+SAY SELECT_ACTION2 @196
+SAY SELECT_ACTION3 @197
+SAY SELECT_ACTION4 @198
+SAY SELECT_ACTION5 @199
+SAY SELECT_ACTION6 @200
+SAY SELECT_ACTION7 @201
+SAY SELECT_RARE1 @202
+SAY SELECT_RARE2 @203
+SAY BIO @222

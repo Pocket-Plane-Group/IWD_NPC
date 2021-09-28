@@ -1,0 +1,11 @@
+// Anauroch Castle
+IF
+Global("O#NPCNellaSevern9","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Severn")
+GlobalGT("Master_Quest","GLOBAL",1)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaSevern9","GLOBAL",1)
+Continue()
+END

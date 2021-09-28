@@ -1,0 +1,10 @@
+// Vale of Shadows, tomb 3
+IF
+Global("O#NPCHolvirKorin1","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirKorin1","GLOBAL",1)
+Continue()
+END

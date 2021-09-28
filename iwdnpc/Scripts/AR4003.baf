@@ -1,0 +1,31 @@
+// Dragon's Eye, level 3, Presio
+IF
+Global("O#NPCNellaSevern3","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaSevern3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCTeri3","GLOBAL",0)
+InParty("O#Teri")
+GlobalGT("ULt_Talk","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirKorin2","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+Dead("Presio")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirKorin2","GLOBAL",1)
+Continue()
+END

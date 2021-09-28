@@ -1,0 +1,10 @@
+// Lower Dorn's Deep, watchtower stairs
+IF
+Global("O#NPCKorinSevern8","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinSevern8","GLOBAL",1)
+Continue()
+END

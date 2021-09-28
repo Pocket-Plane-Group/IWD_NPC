@@ -1,0 +1,10 @@
+// Kuldahar smithy
+IF
+Global("O#NPCHolvirNella1","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirNella1","GLOBAL",1)
+Continue()
+END

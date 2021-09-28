@@ -1,0 +1,20 @@
+// Wyrm's Tooth Glacier, entry pass
+IF
+Global("O#PCHolvir10","GLOBAL",0)
+InParty("O#Holvir")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir10","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCSevernTeri13","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Teri")
+PartyHasItem("JORIL")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri13","GLOBAL",1)
+Continue()
+END

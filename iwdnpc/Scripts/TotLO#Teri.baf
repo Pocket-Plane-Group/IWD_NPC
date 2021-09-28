@@ -1,0 +1,70 @@
+// Tales of the Luremaster
+
+// AR9714 (Anauroch Castle, Watchknight Tomb), PartyHasItem("KEYELEC")
+IF
+InParty(Myself)
+Global("O#NPCHolvirTeri9","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri","O#Holvir")
+END
+
+// AR9712 (Anauroch Castle, second floor), PartyHasItem("MJOURN")
+IF
+InParty(Myself)
+Global("O#PCTeri14","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri",Player1)
+END
+
+// AR9718 (Anauroch Castle, dungeon level 3), GlobalGT("Master_Quest","GLOBAL",4)
+IF
+InParty(Myself)
+Global("O#NPCKorinTeri9","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri","O#Korin")
+END
+
+// AR9801 (Anauroch Castle, dungeon level 5), OR(5) DGEM01 DGEM03 DGEM06 DGEM07 DGEM10
+IF
+InParty(Myself)
+Global("O#NPCNellaTeri9","GLOBAL",1)
+InParty("O#Nella")
+Detect("O#Nella")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri","O#Nella")
+END
+
+// AR9800 (Anauroch Castle, dungeon level 4), GlobalGT("OPENED_HIDE","MYAREA",0), Global("LUREMASTER_DEAD","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri18","GLOBAL",1)
+InParty("O#Severn")
+Detect("O#Severn")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Severn",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri","O#Severn")
+END

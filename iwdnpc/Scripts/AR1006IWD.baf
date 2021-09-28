@@ -1,0 +1,14 @@
+// Easthaven tavern
+IF
+Global("O#AllDialogue1","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+InParty("O#Nella")
+InParty("O#Severn")
+InParty("O#Teri")
+GlobalGT("Know_Hrothgar","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#AllDialogue1","GLOBAL",1)
+Continue()
+END

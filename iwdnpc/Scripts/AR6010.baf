@@ -1,0 +1,20 @@
+// Dorn's Deep, circle of runes room
+IF
+Global("O#PCNella8","GLOBAL",0)
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella8","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCSevernTeri11","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Teri")
+!Global("PUZZLE_A_DISABLED","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri11","GLOBAL",1)
+Continue()
+END

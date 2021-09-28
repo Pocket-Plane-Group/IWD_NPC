@@ -1,0 +1,11 @@
+// Severed Hand, priest towerlet, third floor
+IF
+Global("O#NPCHolvirNella5","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Nella")
+PartyHasItem("PIECE2") 
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirNella5","GLOBAL",1)
+Continue()
+END

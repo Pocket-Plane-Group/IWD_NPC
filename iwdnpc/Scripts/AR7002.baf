@@ -1,0 +1,10 @@
+// Wyrm's Tooth Glacier, small circular room
+IF
+Global("O#NPCNellaSevern7","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaSevern7","GLOBAL",1)
+Continue()
+END

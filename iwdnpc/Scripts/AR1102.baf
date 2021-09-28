@@ -1,0 +1,40 @@
+// Easthaven finale, Temple of Tempus, second floor, beds
+IF
+Global("O#PCHolvir14","GLOBAL",0)
+Global("O#HolvirMatch","GLOBAL",2)
+InParty("O#Holvir")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir14","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCKorin15","GLOBAL",0)
+Global("O#KorinMatch","GLOBAL",2)
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin15","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCNella12","GLOBAL",0)
+Global("O#NellaMatch","GLOBAL",2)
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella12","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCTeri13","GLOBAL",0)
+Global("O#TeriMatch","GLOBAL",2)
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri13","GLOBAL",1)
+Continue()
+END

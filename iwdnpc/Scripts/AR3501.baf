@@ -1,0 +1,30 @@
+// Black Wolf, level 1
+IF
+Global("O#PCKorin3","GLOBAL",0)
+Dead("Mytos")
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCTeri1","GLOBAL",0)
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri1","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCSevernTeri4","GLOBAL",0)
+PartyHasItem("HOLYSYM")
+InParty("O#Teri")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri4","GLOBAL",1)
+Continue()
+END

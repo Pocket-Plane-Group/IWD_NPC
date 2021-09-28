@@ -1,0 +1,77 @@
+// Hotkey fixer
+IF
+HotKey(K)
+THEN
+RESPONSE #100
+StartCutSceneMode()
+StartCutScene("O#KFix")
+END
+
+// Experience
+IF
+InParty(Myself)
+Global("O#KorinExperienceSet","GLOBAL",0)
+XPLT(Player1,10001)
+THEN
+RESPONSE #100
+SetGlobal("O#KorinExperienceSet","GLOBAL",1)
+END
+
+// 20000
+IF
+InParty(Myself)
+Global("O#KorinExperienceSet","GLOBAL",0)
+XPGT(Player1,10000)
+XPLT(Player1,50001)
+THEN
+RESPONSE #100
+SetGlobal("O#KorinExperienceSet","GLOBAL",1)
+AddXPObject("O#Korin",20000)
+END
+
+// 70000
+IF
+InParty(Myself)
+Global("O#KorinExperienceSet","GLOBAL",0)
+XPGT(Player1,50000)
+XPLT(Player1,120001)
+THEN
+RESPONSE #100
+SetGlobal("O#KorinExperienceSet","GLOBAL",1)
+AddXPObject("O#Korin",70000)
+END
+
+// 160000
+IF
+InParty(Myself)
+Global("O#KorinExperienceSet","GLOBAL",0)
+XPGT(Player1,120000)
+XPLT(Player1,250001)
+THEN
+RESPONSE #100
+SetGlobal("O#KorinExperienceSet","GLOBAL",1)
+AddXPObject("O#Korin",160000)
+END
+
+// 400000
+IF
+InParty(Myself)
+Global("O#KorinExperienceSet","GLOBAL",0)
+XPGT(Player1,250000)
+XPLT(Player1,800001)
+THEN
+RESPONSE #100
+SetGlobal("O#KorinExperienceSet","GLOBAL",1)
+AddXPObject("O#Korin",400000)
+END
+
+// 1200000
+IF
+InParty(Myself)
+Global("O#KorinExperienceSet","GLOBAL",0)
+XPGT(Player1,800000)
+THEN
+RESPONSE #100
+SetGlobal("O#KorinExperienceSet","GLOBAL",1)
+AddXPObject("O#Korin",1200000)
+END

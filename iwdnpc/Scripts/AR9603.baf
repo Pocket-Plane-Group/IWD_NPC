@@ -1,0 +1,23 @@
+// Sea of Moving Ice, Icasaracht temple
+IF
+Global("O#PCSevern12","GLOBAL",0)
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#PCSevern12","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#AllDialogue6","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+InParty("O#Nella")
+InParty("O#Severn")
+InParty("O#Teri")
+PartyHasItem("KEYNRM")
+THEN
+RESPONSE #100
+SetGlobal("O#AllDialogue6","GLOBAL",1)
+Continue()
+END

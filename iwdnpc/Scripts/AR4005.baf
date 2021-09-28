@@ -1,0 +1,51 @@
+// Dragon's Eye, level 5, Yxunomei goddess
+IF
+Global("O#PCTeri4","GLOBAL",0)
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri4","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinTeri4","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+GlobalGT("D5_Girl_Move_Loc","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri4","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCSevernTeri5","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Teri")
+GlobalGT("O#HighTorturer","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri5","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCKorin5","GLOBAL",0)
+InParty("O#Korin")
+PartyHasItem("CHAINBM")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin5","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCNella3","GLOBAL",0)
+InParty("O#Nella")
+PartyHasItem("HEARTGM")
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella3","GLOBAL",1)
+Continue()
+END

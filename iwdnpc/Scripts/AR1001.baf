@@ -1,0 +1,10 @@
+// Temple of Tempus
+IF
+Global("O#NPCKorinNella1","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinNella1","GLOBAL",1)
+Continue()
+END

@@ -1,0 +1,11 @@
+// Severed Hand, priest towerlet, first floor
+IF
+Global("O#NPCKorinTeri6","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+PartyHasItem("HELMSUN")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri6","GLOBAL",1)
+Continue()
+END

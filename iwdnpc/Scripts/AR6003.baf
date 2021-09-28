@@ -1,0 +1,31 @@
+// Dorn's Deep, orog cave, Saablic, Krilag
+IF
+Global("O#NPCHolvirKorin5","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirKorin5","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinSevern5","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Severn")
+PartyHasItem("KRILAG")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinSevern5","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCTeri7","GLOBAL",0)
+InParty("O#Teri")
+PartyHasItem("KALABAC")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri7","GLOBAL",1)
+Continue()
+END

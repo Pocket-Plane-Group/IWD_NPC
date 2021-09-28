@@ -1,0 +1,35 @@
+// Gloomfrost
+IF
+Global("O#NPCHolvirNella11","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirNella11","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCSevernTeri19","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Teri")
+OR(3) 
+GlobalGT("SCANMTR1_TRIGGERED","GLOBAL",0) 
+GlobalGT("SCANMTR2_TRIGGERED","GLOBAL",0) 
+GlobalGT("SCANMTR3_TRIGGERED","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri19","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCNellaSevern11","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Severn")
+GlobalGT("Found_Seer","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaSevern11","GLOBAL",1)
+Continue()
+END

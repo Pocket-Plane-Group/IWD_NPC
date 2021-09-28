@@ -1,0 +1,80 @@
+// Heart of Winter
+
+// AR9100 (Lonelywood), GlobalGT("Hjollder_Banished","GLOBAL",0) 
+IF
+InParty(Myself)
+Global("O#NPCKorinTeri10","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Teri")
+END
+
+// AR9301 (Burial Isle, Tower of Edion) 
+IF
+InParty(Myself)
+Global("O#PCKorin17","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// AR9502 (Gloomfrost interior, second level)
+IF
+InParty(Myself)
+Global("O#NPCKorinSevern10","GLOBAL",1)
+InParty("O#Severn")
+Detect("O#Severn")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Severn",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin","O#Severn")
+END
+
+// AR9100 (Lonelywood), GlobalGT("TOWER_CUT_STAGE","MYAREA",0)
+IF
+InParty(Myself)
+Global("O#PCKorin18","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END
+
+// AR9603 (Sea of Moving Ice, Icasaracht temple), PartyHasItem("KEYNRM")
+IF
+InParty(Myself)
+Global("O#AllDialogue6","GLOBAL",1)
+InParty("O#Holvir")
+InParty("O#Nella")
+InParty("O#Severn")
+InParty("O#Teri")
+Detect("O#Holvir")
+Detect("O#Nella")
+Detect("O#Severn")
+Detect("O#Teri")
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+!StateCheck("O#Severn",CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Korin",Player1)
+END

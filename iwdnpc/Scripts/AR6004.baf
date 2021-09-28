@@ -1,0 +1,10 @@
+// Dorn's Deep, Temple of Moradin, cold forge
+IF
+Global("O#NPCKorinSevern6","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinSevern6","GLOBAL",1)
+Continue()
+END

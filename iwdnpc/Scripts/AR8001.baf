@@ -1,0 +1,35 @@
+// Lower Dorn's Deep, main cavern
+IF
+Global("O#NPCwithoutH1","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Korin")
+InParty("O#Severn")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCwithoutH1","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirNella8","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Nella")
+PartyHasItem("KeyWatc")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirNella8","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCTeri9","GLOBAL",0)
+InParty("O#Teri")
+OR(2)
+GlobalGT("8008_SALAMANDERS_DEAD","GLOBAL",5)
+GlobalGT("SPRITE_IS_DEAD8008_SALAMANDERS","GLOBAL",5)
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri9","GLOBAL",1)
+Continue()
+END

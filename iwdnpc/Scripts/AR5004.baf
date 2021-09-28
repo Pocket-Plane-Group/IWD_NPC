@@ -1,0 +1,31 @@
+// Severed Hand, first floor
+IF
+Global("O#NPCKorinTeri5","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri5","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCTeri6","GLOBAL",0)
+InParty("O#Teri")
+PartyHasItem("PIECE3")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri6","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinNella5","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Nella")
+PartyHasItem("PIECE2")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinNella5","GLOBAL",1)
+Continue()
+END

@@ -1,0 +1,21 @@
+// Severed Hand, first floor
+IF
+Global("O#NPCSevernTeri6","GLOBAL",0)
+InParty("O#Teri")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri6","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirSevern4","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Severn")
+PartyHasItem("PIECE4")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirSevern4","GLOBAL",1)
+Continue()
+END

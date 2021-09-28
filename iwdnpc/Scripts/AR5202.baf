@@ -1,0 +1,10 @@
+// Severed Hand, priest towerlet, second floor
+IF
+Global("O#PCSevern5","GLOBAL",0)
+InParty("O#Severn")
+GlobalGT("PriestsDead","GLOBAL",5)
+THEN
+RESPONSE #100
+SetGlobal("O#PCSevern5","GLOBAL",1)
+Continue()
+END

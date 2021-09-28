@@ -1,0 +1,21 @@
+// Lower Dorn's Deep, Malavon's dome
+IF
+Global("O#NPCHolvirTeri8","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirTeri8","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinNella8","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Nella")
+PartyHasItem("MALAVON")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinNella8","GLOBAL",1)
+Continue()
+END

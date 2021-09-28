@@ -1,0 +1,57 @@
+// Dragon's Eye, level 2, Talona priests
+IF
+Global("O#NPCKorinNella3","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinNella3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCSevern3","GLOBAL",0)
+InParty("O#Severn")
+OR(2)
+GlobalGT("Talonite_Dead","GLOBAL",0)
+GlobalGT("SPRITE_IS_DEADTALONITE","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#PCSevern3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirSevern3","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Severn")
+OR(2)
+GlobalGT("Talonite_Dead","GLOBAL",5)
+GlobalGT("SPRITE_IS_DEADTALONITE","GLOBAL",5)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirSevern3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirTeri3","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Teri")
+GlobalGT("Egenia_Talked","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirTeri3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirTeri4","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Teri")
+PartyHasItem("HEARTGM")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirTeri4","GLOBAL",1)
+Continue()
+END

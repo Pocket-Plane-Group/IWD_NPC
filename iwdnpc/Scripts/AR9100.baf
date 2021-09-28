@@ -1,0 +1,31 @@
+// Lonelywood
+IF
+Global("O#NPCNellaSevern10","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaSevern10","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinTeri10","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+GlobalGT("Hjollder_Banished","GLOBAL",0) 
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri10","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCKorin18","GLOBAL",0)
+InParty("O#Korin")
+GlobalGT("TOWER_CUT_STAGE","MYAREA",0)
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin18","GLOBAL",1)
+Continue()
+END

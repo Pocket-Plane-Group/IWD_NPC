@@ -1,0 +1,42 @@
+// Tales of the Luremaster
+
+// AR9708 (Anauroch Castle, southeast tower), Dead("Criek")
+IF
+InParty(Myself)
+Global("O#NPCHolvirNella9","GLOBAL",1)
+InParty("O#Nella")
+Detect("O#Nella")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Holvir","O#Nella")
+END
+
+// AR9709 (Anauroch Castle, western walls), OR(2) PartyHasItem("TALE2") PartyHasItem("TALE3")
+IF
+InParty(Myself)
+Global("O#NPCHolvirKorin9","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Holvir","O#Korin")
+END
+
+// AR9713 (Anauroch Castle, Ruined Temple of Helm), GlobalGT("MADE_OFFERING","MYAREA",1)
+IF
+InParty(Myself)
+Global("O#PCHolvir15","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Holvir",Player1)
+END

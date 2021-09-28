@@ -1,0 +1,9 @@
+// Severed Hand, second floor
+IF
+Global("O#PCNella5","GLOBAL",0)
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella5","GLOBAL",1)
+Continue()
+END

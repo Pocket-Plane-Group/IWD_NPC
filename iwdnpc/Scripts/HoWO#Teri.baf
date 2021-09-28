@@ -1,0 +1,115 @@
+// Heart of Winter
+
+// AR9103 (Lonelywood, Temple of Waukeen)
+IF
+InParty(Myself)
+Global("O#PCTeri15","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri",Player1)
+END
+
+// AR9107 (Lonelywood, Thurlow home, second floor)
+IF
+InParty(Myself)
+Global("O#NPCHolvirTeri10","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri","O#Holvir")
+END
+
+// AR9300 (Burial Isle)
+IF
+InParty(Myself)
+Global("O#NPCHolvirTeri11","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri","O#Holvir")
+END
+
+// AR9500 (Gloomfrost), OR(3) GlobalGT("SCANMTR1_TRIGGERED","GLOBAL",0) GlobalGT("SCANMTR2_TRIGGERED","GLOBAL",0) GlobalGT("SCANMTR3_TRIGGERED","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri19","GLOBAL",1)
+InParty("O#Severn")
+Detect("O#Severn")
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Severn",CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri","O#Severn")
+END
+
+// AR9501 (Gloomfrost interior, first level), PartyHasItem("MIRROR")
+IF
+InParty(Myself)
+Global("O#NPCNellaTeri10","GLOBAL",1)
+InParty("O#Nella")
+Detect("O#Nella")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri","O#Nella")
+END
+
+// AR9201 (Barbarian camp, Mead Hall), Dead("SEER")
+IF
+InParty(Myself)
+Global("O#PCTeri16","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri",Player1)
+END
+
+// AR9107 (Lonelywood, Thurlow home, second floor), GlobalGT("THURLOW_MURDER","GLOBAL",1)
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri20","GLOBAL",1)
+InParty("O#Severn")
+Detect("O#Severn")
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Severn",CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri","O#Severn")
+END
+
+// AR9600 (Sea of Moving Ice), GlobalGT("GOLEM_HOSTILE","MYAREA",0)
+IF
+InParty(Myself)
+Global("O#NPCKorinTeri11","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Teri","O#Korin")
+END

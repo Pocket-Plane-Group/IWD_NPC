@@ -1,0 +1,23 @@
+// Lower Dorn's Deep, gnome pit
+IF
+Global("O#NPCwithoutS1","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+InParty("O#Nella")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCwithoutS1","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirKorin8","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+GlobalGT("TARNEL_TRAP_SET","GLOBAL",2)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirKorin8","GLOBAL",1)
+Continue()
+END

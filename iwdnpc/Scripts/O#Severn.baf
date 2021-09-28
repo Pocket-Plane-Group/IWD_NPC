@@ -1,0 +1,501 @@
+// Prologue
+
+// AR2004 (Kuldahar pass, the mill)
+IF
+InParty(Myself)
+Global("O#PCSevern1","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR2003 (Kuldahar pass: tower)
+IF
+InParty(Myself)
+Global("O#NPCHolvirSevern1","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Holvir")
+END
+
+// Chapter 1
+
+// AR2111 (Kuldahar tavern)
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri2","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Teri")
+END
+
+// AR3000 (Vale of Shadows)
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri3","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Teri")
+END
+
+// AR3301 (Temple of Myrkul, key is in the inventory)
+IF
+InParty(Myself)
+Global("O#NPCKorinSevern1","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Korin")
+END
+
+// AR3602 (Temple of the Forgotten God - second level)
+IF
+Global("O#NPCNellaSevern2","GLOBAL",1)
+InParty(Myself)
+InParty("O#Nella")
+Detect("O#Nella")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Nella")
+END
+
+// AR3603 (Temple of the Forgotten God, level 3)
+IF
+InParty(Myself)
+Global("O#PCSevern2","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// Chapter 2
+
+// AR4002 (Dragon's Eye, level 2, Talona priests), GlobalGT("Talonite_Dead","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#PCSevern3","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR4002 (Dragon's Eye, level 2, Talona priests), GlobalGT("Talonite_Dead","GLOBAL",5)
+IF
+InParty(Myself)
+Global("O#NPCHolvirSevern3","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Holvir")
+END
+
+// AR4004 (Dragon's Eye, level 4, cultists), GlobalGT("Marchon_Free","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#PCSevern4","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR4005 (Dragon's Eye, level 5, Yxunomei goddess), torturer
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri5","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Teri")
+END
+
+// AR4004 (Dragon's Eye, level 4, cultists), PartyHasItem("HEARTGM"), InParty("O#Teri")
+IF
+Global("O#NPCNellaSevern4","GLOBAL",1)
+InParty(Myself)
+InParty("O#Nella")
+Detect("O#Nella")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Nella")
+END
+
+// Chapter 3
+
+// AR5001 (Severed Hand, first floor)
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri6","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Teri")
+END
+
+// AR5001 (Severed Hand, first floor), PartyHasItem("PIECE4")
+IF
+InParty(Myself)
+Global("O#NPCHolvirSevern4","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Holvir")
+END
+
+// AR5101 (Severed Hand, blown-up towerlet)
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri7","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Teri")
+END
+
+// AR5202 (Severed Hand, priest towerlet, second floor), GlobalGT("PriestsDead","GLOBAL",5)
+IF
+InParty(Myself)
+Global("O#PCSevern5","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR5204 (Severed Hand, priest towerlet, fourth floor), GlobalGT("PriestsDead","GLOBAL",23)
+IF
+Global("O#NPCNellaSevern5","GLOBAL",1)
+InParty(Myself)
+InParty("O#Nella")
+Detect("O#Nella")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Nella")
+END
+
+// AR5502 (Severed Hand, monster towerlet, side passage)
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri9","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR5104 (Severed Hand, mage towerlet, first floor)
+IF
+InParty(Myself)
+Global("O#NPCKorinSevern4","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Korin")
+END
+
+// Chapter 4
+
+// AR6000 (Dorn's Deep, exterior)
+IF
+InParty(Myself)
+Global("O#PCSevern6","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR6001 (Dorn's Deep, entry cavern), GlobalGT("Bandoth_Quest","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri10","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Teri")
+END
+
+// AR6010 (Dorn's Deep, circle of runes room), !Global("PUZZLE_A_DISABLED","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri11","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Teri")
+END
+
+// AR6004 (Dorn's Deep, Temple of Moradin, cold forge)
+IF
+InParty(Myself)
+Global("O#NPCKorinSevern6","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Korin")
+END
+
+// AR6006 (Dorn's Deep, Hall of Heroes)
+IF
+InParty(Myself)
+Global("O#NPCHolvirSevern6","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Holvir")
+END
+
+// Chapter 5
+
+// AR7005 (Wyrm's Tooth Glacier, aquarium exterior)
+IF
+InParty(Myself)
+Global("O#NPCKorinSevern7","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Korin")
+END
+
+// AR7002 (Wyrm's Tooth Glacier, small circular room)
+IF
+Global("O#NPCNellaSevern7","GLOBAL",1)
+InParty(Myself)
+InParty("O#Nella")
+Detect("O#Nella")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Nella")
+END
+
+// AR7005 (Wyrm's Tooth Glacier, Gareth, slaves), PartyHasItem("BOOKENG")
+IF
+InParty(Myself)
+Global("O#PCSevern7","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR7005 (Wyrm's Tooth Glacier, entry pass), PartyHasItem("JORIL")
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri13","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Teri")
+END
+
+// Chapter 6
+
+// AR8001 (Lower Dorn's Deep, main cavern)
+IF
+InParty(Myself)
+Global("O#NPCwithoutH1","GLOBAL",1)
+InParty("O#Korin")
+InParty("O#Nella")
+InParty("O#Teri")
+Detect("O#Korin")
+Detect("O#Nella")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR8002 (Lower Dorn's Deep, watchtower stairs)
+IF
+InParty(Myself)
+Global("O#NPCKorinSevern8","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Korin")
+END
+
+// AR8007 (Lower Dorn's Deep, palace, second floor), PartyHasItem("MARKETH")
+IF
+InParty(Myself)
+Global("O#NPCSevernTeri14","GLOBAL",1)
+InParty("O#Teri")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Teri")
+END
+
+// AR8009 (Lower Dorn's Deep, artisan's district)
+IF
+InParty(Myself)
+Global("O#PCSevern8","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// Finale
+
+// AR1100 (Easthaven finale), GlobalGT("Freed_Everard","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#PCSevern9","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR1104 (Easthaven finale, Temple of Tempus, fourth floor, mirror)
+IF
+InParty(Myself)
+Global("O#AllDialogue5","GLOBAL",1)
+InParty("O#Korin")
+InParty("O#Nella")
+InParty("O#Severn")
+InParty("O#Teri")
+Detect("O#Korin")
+Detect("O#Nella")
+Detect("O#Severn")
+Detect("O#Teri")
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+!StateCheck("O#Severn",CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END

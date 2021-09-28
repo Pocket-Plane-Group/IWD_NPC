@@ -1,0 +1,21 @@
+// Dorn's Deep, entry cavern
+IF
+Global("O#NPCKorinNella6","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinNella6","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCSevernTeri10","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Teri")
+GlobalGT("Bandoth_Quest","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri10","GLOBAL",1)
+Continue()
+END

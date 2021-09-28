@@ -1,0 +1,10 @@
+// Anauroch Castle, northeast tower basement, courage test
+IF
+Global("O#PCKorin16","GLOBAL",0)
+InParty("O#Korin")
+PartyHasItem("TALE1")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin16","GLOBAL",1)
+Continue()
+END

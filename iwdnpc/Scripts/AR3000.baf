@@ -1,0 +1,31 @@
+// Vale of Shadows
+IF
+Global("O#NPCSevernTeri3","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinSevern2","GLOBAL",0)
+GlobalGT("Kress_Quest","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinSevern2","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCNella2","GLOBAL",0)
+Dead("Lysan")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella2","GLOBAL",1)
+Continue()
+END

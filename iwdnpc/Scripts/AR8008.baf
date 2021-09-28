@@ -1,0 +1,10 @@
+// Lower Dorn's Deep, mines, Guello, Shikata
+IF
+Global("O#NPCNellaTeri8","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaTeri8","GLOBAL",1)
+Continue()
+END

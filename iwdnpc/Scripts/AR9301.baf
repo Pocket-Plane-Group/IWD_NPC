@@ -1,0 +1,9 @@
+// Burial Isle, Tower of Edion
+IF
+Global("O#PCKorin17","GLOBAL",0)
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin17","GLOBAL",1)
+Continue()
+END

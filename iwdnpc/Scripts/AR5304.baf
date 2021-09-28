@@ -1,0 +1,10 @@
+// Severed Hand, warrior towerlet, fourth floor
+IF
+Global("O#NPCKorinNella4","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinNella4","GLOBAL",1)
+Continue()
+END

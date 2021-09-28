@@ -1,0 +1,20 @@
+// Wyrm's Tooth Glacier, Gareth, slaves
+IF
+Global("O#NPCHolvirKorin7","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirKorin7","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCSevern7","GLOBAL",0)
+InParty("O#Severn")
+PartyHasItem("BOOKENG")
+THEN
+RESPONSE #100
+SetGlobal("O#PCSevern7","GLOBAL",1)
+Continue()
+END

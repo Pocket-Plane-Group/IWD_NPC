@@ -1,0 +1,21 @@
+// Kuldhar, temple
+IF 
+Global("O#NPCKorinTeri1","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri1","GLOBAL",1)
+Continue()
+END
+
+IF 
+Global("O#NPCKorinTeri2","GLOBAL",0)
+GlobalGT("Kress_Quest","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri2","GLOBAL",1)
+Continue()
+END

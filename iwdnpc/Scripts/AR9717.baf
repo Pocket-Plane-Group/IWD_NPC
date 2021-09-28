@@ -1,0 +1,21 @@
+// Anauroch Castle, dungeon level 2
+IF
+Global("O#NPCHolvirNella10","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirNella10","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirSevern9","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Severn")
+PartyHasItem("SKULL2")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirSevern9","GLOBAL",1)
+Continue()
+END

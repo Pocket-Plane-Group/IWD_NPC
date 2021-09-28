@@ -1,0 +1,11 @@
+// Hrothgar's home
+IF
+Global("O#NPCKorinNella2","GLOBAL",0)
+Global("O#NPCKorinNella1","GLOBAL",2)
+InParty("O#Korin")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinNella2","GLOBAL",1)
+Continue()
+END

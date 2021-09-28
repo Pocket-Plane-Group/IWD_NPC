@@ -1,0 +1,45 @@
+// Dragon's Eye, level 1, Lizard King
+IF
+Global("O#NPCHolvirSevern2","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirSevern2","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCKorin4","GLOBAL",0)
+InParty("O#Korin")
+OR(2) 
+PartyHasItem("EREVAIN") 
+PartyHasItem("EREJOUR")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin4","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCHolvir4","GLOBAL",0)
+InParty("O#Holvir")
+OR(2)
+GlobalGT("LKingDead","GLOBAL",0)
+GlobalGT("SPRITE_IS_DEADLIZARD_KING","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir4","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PartyFoundDeadErevain","GLOBAL",0)
+OR(2) 
+PartyHasItem("EREVAIN") 
+PartyHasItem("EREJOUR")
+THEN
+RESPONSE #100
+SetGlobal("O#PartyFoundDeadErevain","GLOBAL",1)
+Continue()
+END

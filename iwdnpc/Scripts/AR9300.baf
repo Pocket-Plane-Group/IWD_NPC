@@ -1,0 +1,10 @@
+// Burial Isle
+IF
+Global("O#NPCHolvirTeri11","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirTeri11","GLOBAL",1)
+Continue()
+END

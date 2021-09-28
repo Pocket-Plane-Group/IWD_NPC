@@ -1,0 +1,11 @@
+// Anauroch Castle, first floor
+IF
+Global("O#NPCSevernTeri16","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Teri")
+GlobalGT("Master_Quest","GLOBAL",3)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri16","GLOBAL",1)
+Continue()
+END

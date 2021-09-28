@@ -1,0 +1,56 @@
+// Tales of the Luremaster
+
+// AR9700 (Anauroch Castle), GlobalGT("Master_Quest","GLOBAL",1)
+IF
+InParty(Myself)
+Global("O#NPCNellaSevern9","GLOBAL",1)
+InParty("O#Severn")
+Detect("O#Severn")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Severn",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Nella","O#Severn")
+END
+
+// AR9712 (Anauroch Castle, second floor), GlobalGT("ORGAN_DISABLED","MYAREA",0)
+IF
+InParty(Myself)
+Global("O#NPCKorinNella10","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Nella","O#Korin")
+END
+
+// AR9717 (Anauroch Castle, dungeon level 2)
+IF
+InParty(Myself)
+Global("O#NPCHolvirNella10","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Nella","O#Holvir")
+END
+
+// AR9800 (Anauroch Castle, dungeon level 4)
+IF
+InParty(Myself)
+Global("O#PCNella13","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Nella",Player1)
+END

@@ -1,0 +1,11 @@
+// Anauroch Castle, southeast tower
+IF
+Global("O#NPCHolvirNella9","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Nella")
+Dead("Criek")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirNella9","GLOBAL",1)
+Continue()
+END

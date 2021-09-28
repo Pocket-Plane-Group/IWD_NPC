@@ -1,0 +1,11 @@
+// Anauroch Castle, dungeon level 3
+IF
+Global("O#NPCKorinTeri9","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+GlobalGT("Master_Quest","GLOBAL",4)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri9","GLOBAL",1)
+Continue()
+END

@@ -1,0 +1,19 @@
+// Lower Dorn's Deep, artisan's district
+IF
+Global("O#PCSevern8","GLOBAL",0)
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#PCSevern8","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCTeri10","GLOBAL",0)
+InParty("O#Teri")
+PartyHasItem("MALAVON")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri10","GLOBAL",1)
+Continue()
+END

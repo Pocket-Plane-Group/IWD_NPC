@@ -1,0 +1,11 @@
+// Severed Hand, warrior towerlet, second floor
+IF
+Global("O#NPCHolvirSevern5","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Severn")
+PartyHasItem("PIECE3") 
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirSevern5","GLOBAL",1)
+Continue()
+END

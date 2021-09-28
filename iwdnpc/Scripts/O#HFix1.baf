@@ -1,0 +1,7 @@
+// Setting dialogue
+IF
+HotKey(K)
+THEN
+RESPONSE #100
+SetDialog("O#Holvir")
+END

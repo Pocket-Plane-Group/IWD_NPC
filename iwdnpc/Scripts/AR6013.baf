@@ -1,0 +1,19 @@
+// Dorn's Deep, Temple of Moradin, working forge
+IF
+Global("O#PCKorin9","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin9","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirNella7","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Nella")
+PartyHasItem("FKEY")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirNella7","GLOBAL",1)
+Continue()
+END

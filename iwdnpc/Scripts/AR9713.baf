@@ -1,0 +1,10 @@
+// Anauroch Castle, Ruined Temple of Helm
+IF
+Global("O#PCHolvir15","GLOBAL",0)
+InParty("O#Holvir")
+GlobalGT("MADE_OFFERING","MYAREA",1)
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir15","GLOBAL",1)
+Continue()
+END

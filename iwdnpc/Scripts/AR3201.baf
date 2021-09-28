@@ -1,0 +1,10 @@
+// Vale of Shadows, tomb 2
+IF
+Global("O#NPCHolvirNella2","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirNella2","GLOBAL",1)
+Continue()
+END

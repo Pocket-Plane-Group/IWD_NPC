@@ -1,0 +1,91 @@
+// Heart of Winter
+
+// AR9400 (Burial Isle, Wylfdene's barrow), PartyHasItem("WYLFINS")
+IF
+InParty(Myself)
+Global("O#PCSevern11","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR9501 (Gloomfrost interior, first level) 
+IF
+InParty(Myself)
+Global("O#NPCHolvirSevern10","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Holvir")
+END
+
+// AR9200 (Barbarian camp), Dead("SEER") Detect([ENEMY])
+IF
+InParty(Myself)
+Global("O#NPCHolvirSevern11","GLOBAL",1)
+InParty("O#Holvir")
+Detect("O#Holvir")
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Holvir")
+END
+
+// AR9602 (Sea of Moving Ice, caves level 2), InParty("O#Teri")
+IF
+InParty(Myself)
+Global("O#NPCKorinSevern11","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn","O#Korin")
+END
+
+// AR9603 (Sea of Moving Ice, Icasaracht temple)
+IF
+InParty(Myself)
+Global("O#PCSevern12","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END
+
+// AR2100 (Kuldahar), GlobalGT("HOW_COMPLETED","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#AllDialogue8","GLOBAL",1)
+InParty("O#Holvir")
+InParty("O#Korin")
+InParty("O#Nella")
+InParty("O#Teri")
+Detect("O#Holvir")
+Detect("O#Korin")
+Detect("O#Nella")
+Detect("O#Teri")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Holvir",CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+!StateCheck("O#Teri",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Severn",Player1)
+END

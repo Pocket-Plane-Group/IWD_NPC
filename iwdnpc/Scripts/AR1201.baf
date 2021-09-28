@@ -1,0 +1,11 @@
+// missing caravan location
+IF
+Global("O#NPCHolvirTeri1","GLOBAL",0)
+PartyHasItem("Contract")
+InParty("O#Holvir")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirTeri1","GLOBAL",1)
+Continue()
+END

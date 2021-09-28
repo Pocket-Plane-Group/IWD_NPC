@@ -1,0 +1,63 @@
+// Easthaven finale
+IF
+Global("O#AllDialogue3","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+InParty("O#Nella")
+InParty("O#Teri")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#AllDialogue3","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCSevern9","GLOBAL",0)
+GlobalGT("Freed_Everard","GLOBAL",0)
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#PCSevern9","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCHolvir13","GLOBAL",0)
+Global("O#HolvirMatch","GLOBAL",1)
+InParty("O#Holvir")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir13","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCKorin14","GLOBAL",0)
+Global("O#KorinMatch","GLOBAL",2)
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin14","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCNella11","GLOBAL",0)
+Global("O#NellaMatch","GLOBAL",1)
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella11","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCTeri12","GLOBAL",0)
+Global("O#TeriMatch","GLOBAL",2)
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri12","GLOBAL",1)
+Continue()
+END

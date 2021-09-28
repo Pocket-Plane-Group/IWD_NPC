@@ -1,0 +1,9 @@
+// Kuldahar pass: cave
+IF 
+Global("O#PCHolvir1","GLOBAL",0)
+InParty("O#Holvir")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir1","GLOBAL",1)
+Continue()
+END

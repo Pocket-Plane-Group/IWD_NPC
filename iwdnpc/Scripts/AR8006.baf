@@ -1,0 +1,20 @@
+// Lower Dorn's Deep, palace, first floor
+IF
+Global("O#NPCHolvirSevern8","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirSevern8","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCKorin12","GLOBAL",0)
+InParty("O#Korin")
+PartyHasItem("MARKETH")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin12","GLOBAL",1)
+Continue()
+END

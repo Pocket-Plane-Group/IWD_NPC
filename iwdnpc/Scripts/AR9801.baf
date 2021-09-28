@@ -1,0 +1,42 @@
+// Anauroch Castle, dungeon level 5
+IF
+Global("O#NPCHolvirKorin10","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirKorin10","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCNellaTeri9","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Teri")
+OR(5) 
+PartyHasItem("DGEM01")
+PartyHasItem("DGEM03")
+PartyHasItem("DGEM06")
+PartyHasItem("DGEM07")
+PartyHasItem("DGEM10")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaTeri9","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinSevern9","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Severn")
+OR(5) 
+PartyHasItem("DGEM02")
+PartyHasItem("DGEM04")
+PartyHasItem("DGEM05")
+PartyHasItem("DGEM08")
+PartyHasItem("DGEM09")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinSevern9","GLOBAL",1)
+Continue()
+END

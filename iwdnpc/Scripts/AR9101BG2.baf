@@ -1,0 +1,59 @@
+IF
+Global("O#NellaSpawnLonelywood","GLOBAL",0)
+!Dead("O#Nella")
+!InParty("O#Nella")
+Global("O#NellaJoined","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Nella",[932.352],0)
+SetGlobal("O#NellaSpawnLonelywood","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#KorinSpawnLonelywood","GLOBAL",0)
+!Dead("O#Korin")
+!InParty("O#Korin")
+Global("O#KorinJoined","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Korin",[935.305],0)
+SetGlobal("O#KorinSpawnLonelywood","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#TeriSpawnLonelywood","GLOBAL",0)
+!Dead("O#Teri")
+!InParty("O#Teri")
+Global("O#TeriJoined","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Teri",[983.279],0)
+SetGlobal("O#TeriSpawnLonelywood","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#SevernSpawnLonelywood","GLOBAL",0)
+!Dead("O#Severn")
+!InParty("O#Severn")
+Global("O#SevernJoined","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Severn",[1032.283],0)
+SetGlobal("O#SevernSpawnLonelywood","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#HolvirSpawnLonelywood","GLOBAL",0)
+!Dead("O#Holvir")
+!InParty("O#Holvir")
+Global("O#HolvirJoined","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Holvir",[1066.315],0)
+SetGlobal("O#HolvirSpawnLonelywood","GLOBAL",1)
+Continue()
+END

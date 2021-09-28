@@ -1,0 +1,12 @@
+@echo off
+del Override\o#*.wav
+del Sounds\O#Holvir\*.wav
+del Sounds\O#Korin\*.wav
+del Sounds\O#Nella\*.wav
+del Sounds\O#Severn\*.wav
+del Sounds\O#Teri\*.wav
+rmdir Sounds\O#Holvir
+rmdir Sounds\O#Korin
+rmdir Sounds\O#Nella
+rmdir Sounds\O#Severn
+rmdir Sounds\O#Teri

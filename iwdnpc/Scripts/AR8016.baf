@@ -1,0 +1,9 @@
+// Lower Dorn's Deep, home in gnome village
+IF
+Global("O#PCKorin11","GLOBAL",0)
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin11","GLOBAL",1)
+Continue()
+END

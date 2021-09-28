@@ -1,0 +1,9 @@
+// Lonelywood, Temple of Waukeen
+IF
+Global("O#PCTeri15","GLOBAL",0)
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri15","GLOBAL",1)
+Continue()
+END

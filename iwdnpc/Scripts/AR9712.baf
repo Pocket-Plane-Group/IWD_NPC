@@ -1,0 +1,21 @@
+// Anauroch Castle, second floor
+IF
+Global("O#NPCKorinNella10","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Nella")
+GlobalGT("ORGAN_DISABLED","MYAREA",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinNella10","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCTeri14","GLOBAL",0)
+InParty("O#Teri")
+PartyHasItem("MJOURN")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri14","GLOBAL",1)
+Continue()
+END

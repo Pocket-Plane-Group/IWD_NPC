@@ -1,0 +1,10 @@
+// Severed Hand, monster towerlet, first floor
+IF
+Global("O#PCKorin7","GLOBAL",0)
+InParty("O#Korin")
+PartyHasItem("PIECE1")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin7","GLOBAL",1)
+Continue()
+END

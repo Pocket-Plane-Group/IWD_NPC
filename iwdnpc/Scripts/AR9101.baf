@@ -1,0 +1,24 @@
+// Lonelywood, Whistling Gallows, first floor
+IF
+Global("O#NPCHolvirKorin11","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirKorin11","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#AllDialogue7","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+InParty("O#Nella")
+InParty("O#Severn")
+InParty("O#Teri")
+GlobalGT("Master_Quest","GLOBAL",5)
+THEN
+RESPONSE #100
+SetGlobal("O#AllDialogue7","GLOBAL",1)
+Continue()
+END

@@ -1,0 +1,22 @@
+// Lower Dorn's Deep, forge, Ilmadia
+IF
+Global("O#NPCwithoutN1","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+InParty("O#Severn")
+InParty("O#Teri")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCwithoutN1","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCNella10","GLOBAL",0)
+InParty("O#Nella")
+PartyHasItem("MAIDEN")
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella10","GLOBAL",1)
+Continue()
+END

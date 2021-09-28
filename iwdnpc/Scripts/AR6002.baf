@@ -1,0 +1,31 @@
+// Dorn's Deep, main hall
+IF
+Global("O#NPCNellaSevern6","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaSevern6","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCHolvir9","GLOBAL",0)
+InParty("O#Holvir")
+PartyHasItem("KRILAG")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir9","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCHolvirKorin6","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+GlobalGT("PUZZLE_STAIRS_OPEN","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirKorin6","GLOBAL",1)
+Continue()
+END

@@ -1,0 +1,39 @@
+// AR1006 (Easthaven tavern)
+
+CHAIN IF ~Global("O#AllDialogue1","GLOBAL",1)~ THEN O#NELLA all1
+@0 
+DO ~SetGlobal("O#AllDialogue1","GLOBAL",2)~
+= @1
+= @2
+== O#KORIN @3
+= @4
+== O#TERI @5  
+= @6
+== O#SEVERN @7
+END
+IF ~~ EXTERN O#TERI all1.1
+
+CHAIN O#TERI all1.1
+@8
+== O#SEVERN @9
+== O#TERI @10
+== O#SEVERN @11
+= @12
+END
+IF ~~ EXTERN O#HOLVIR all1.2
+
+CHAIN O#HOLVIR all1.2
+@13
+== O#HOLVIR @14
+END
+++ @15 EXTERN O#HOLVIR p1.2
+++ @16 EXTERN O#HOLVIR p1.2
+++ @17 EXTERN O#HOLVIR p1.2
++ ~Gender(Player1,FEMALE)~ + @2414 EXTERN O#HOLVIR p1.2
+++ @2415 EXTERN O#HOLVIR p1.2
+++ @18 EXTERN O#HOLVIR p1.2
+
+CHAIN O#HOLVIR p1.2
+@2416
+= @19
+EXIT

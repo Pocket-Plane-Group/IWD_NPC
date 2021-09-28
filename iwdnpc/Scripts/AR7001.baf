@@ -1,0 +1,11 @@
+// Wyrm's Tooth Glacier, aquarium interior, ice salamander lair
+IF
+Global("O#NPCHolvirTeri7","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Teri")
+GlobalGT("Kerish_Look","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirTeri7","GLOBAL",1)
+Continue()
+END

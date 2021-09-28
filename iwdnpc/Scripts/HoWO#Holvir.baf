@@ -1,0 +1,55 @@
+// Heart of Winter
+
+// AR9101 (Lonelywood, Whistling Gallows, first floor)
+IF
+InParty(Myself)
+Global("O#NPCHolvirKorin11","GLOBAL",1)
+InParty("O#Korin")
+Detect("O#Korin")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Korin",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Holvir","O#Korin")
+END
+
+// AR9500 (Gloomfrost)
+IF
+InParty(Myself)
+Global("O#NPCHolvirNella11","GLOBAL",1)
+InParty("O#Nella")
+Detect("O#Nella")
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck("O#Nella",CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Holvir","O#Nella")
+END
+
+// AR9501 (Gloomfrost interior, first level), OR(2) GlobalGT("SCANMTR5_TRIGGERED","GLOBAL",0) GlobalGT("SCANMTR6_TRIGGERED","GLOBAL",0)
+IF
+InParty(Myself)
+Global("O#PCHolvir16","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Holvir",Player1)
+END
+
+// AR9600 (Sea of Moving Ice)
+IF
+InParty(Myself)
+Global("O#PCHolvir17","GLOBAL",1)
+Detect(Player1)
+!Detect([ENEMY])
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialog("O#Holvir",Player1)
+END

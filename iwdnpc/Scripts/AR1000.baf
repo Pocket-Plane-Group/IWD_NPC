@@ -1,0 +1,76 @@
+// Easthaven main
+IF
+Global("O#NPCSevernTeri1","GLOBAL",0)
+InParty("O#Teri")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri1","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#PCKorin1","GLOBAL",0)
+GlobalGT("Caravan_Quest","GLOBAL",0)
+InParty("O#Korin")
+THEN
+RESPONSE #100
+SetGlobal("O#PCKorin1","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#HolvirMatch","GLOBAL",0)
+InParty("O#Holvir")
+Gender(Player1,FEMALE)
+OR(3)
+Race(Player1,HUMAN)
+Race(Player1,HALF_ELF)
+Race(Player1,ELF)
+THEN
+RESPONSE #100
+SetGlobal("O#HolvirMatch","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#KorinMatch","GLOBAL",0)
+InParty("O#Korin")
+Gender(Player1,FEMALE)
+OR(3)
+Race(Player1,HUMAN)
+Race(Player1,HALF_ELF)
+Race(Player1,ELF)
+THEN
+RESPONSE #100
+SetGlobal("O#KorinMatch","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NellaMatch","GLOBAL",0)
+InParty("O#Nella")
+Gender(Player1,MALE)
+OR(3)
+Race(Player1,HUMAN)
+Race(Player1,HALF_ELF)
+Race(Player1,ELF)
+THEN
+RESPONSE #100
+SetGlobal("O#NellaMatch","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#TeriMatch","GLOBAL",0)
+InParty("O#Teri")
+Gender(Player1,MALE)
+OR(3)
+Race(Player1,HUMAN)
+Race(Player1,HALF_ELF)
+Race(Player1,ELF)
+THEN
+RESPONSE #100
+SetGlobal("O#TeriMatch","GLOBAL",1)
+Continue()
+END

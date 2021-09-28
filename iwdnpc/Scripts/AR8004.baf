@@ -1,0 +1,20 @@
+// Lower Dorn's Deep, gnome village
+IF
+Global("O#PCHolvir11","GLOBAL",0)
+InParty("O#Holvir")
+THEN
+RESPONSE #100
+SetGlobal("O#PCHolvir11","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCKorinTeri8","GLOBAL",0)
+InParty("O#Korin")
+InParty("O#Teri")
+GlobalGT("O#NymBetrayal","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCKorinTeri8","GLOBAL",1)
+Continue()
+END

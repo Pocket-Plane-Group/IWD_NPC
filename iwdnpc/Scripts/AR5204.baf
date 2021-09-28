@@ -1,0 +1,21 @@
+// Severed Hand, priest towerlet, fourth floor
+IF
+Global("O#PCTeri5","GLOBAL",0)
+InParty("O#Teri")
+PartyHasItem("HOLYWAT")
+PartyHasItem("HEARTGM")
+THEN
+RESPONSE #100
+SetGlobal("O#PCTeri5","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCNellaSevern5","GLOBAL",0)
+InParty("O#Nella")
+InParty("O#Severn")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCNellaSevern5","GLOBAL",1)
+Continue()
+END

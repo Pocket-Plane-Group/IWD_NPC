@@ -1,0 +1,13 @@
+// Anauroch Castle, western walls
+IF
+Global("O#NPCHolvirKorin9","GLOBAL",0)
+InParty("O#Holvir")
+InParty("O#Korin")
+OR(2) 
+PartyHasItem("TALE2") 
+PartyHasItem("TALE3")
+THEN
+RESPONSE #100
+SetGlobal("O#NPCHolvirKorin9","GLOBAL",1)
+Continue()
+END

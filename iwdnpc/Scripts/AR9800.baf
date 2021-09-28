@@ -1,0 +1,34 @@
+// Anauroch Castle, dungeon level 4
+IF
+Global("O#PCNella13","GLOBAL",0)
+InParty("O#Nella")
+THEN
+RESPONSE #100
+SetGlobal("O#PCNella13","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCSevernTeri17","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Teri")
+GlobalGT("O#RikashaTalked","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri17","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#NPCSevernTeri18","GLOBAL",0)
+InParty("O#Severn")
+InParty("O#Teri")
+GlobalGT("OPENED_HIDE","MYAREA",0)
+OR(2)
+Global("LUREMASTER_DEAD","GLOBAL",0)
+Global("SPRITE_IS_DEADLUREMASTER","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#NPCSevernTeri18","GLOBAL",1)
+Continue()
+END
