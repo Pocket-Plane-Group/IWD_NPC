@@ -1,5 +1,5 @@
 		     Icewind Dale NPCs MOD for Icewind Dale
-				  Version 7
+				  Version 8
 			 A Pocket Plane Group Project
 			  http://www.pocketplane.net
 
@@ -64,7 +64,7 @@ to install IWD NPC after them.
 
 Make sure that Icewind Dale or ANY game-related utilities are not running.
 
-To install the mod, run IWDNPC_v5.exe. 
+To install the mod, run IWDNPC.exe. 
 
 If you are playing IWD:EE or IWD-in-BG2 conversion, simply choose
 your IWD-in-BG2 directory(the one with chitin.key file),
@@ -402,6 +402,16 @@ winLAME					http://winlame.sourceforge.net
 -------------------
 6. Version History
 -------------------
+
+Version 8 by morgan & jastey
+- Polish translation by Ril
+- readme call moved to before installation
+- mod now uses HANDLE_CHARSETS and ANSI coded text files
+- Audio handling for IWDEE and IWD-in-BGII changed to HANDLE_AUDIO
+- Language folders moved into subfolder "language"
+- added DESIGNATED tags to components
+- optional components will only be available if the main component is installed
+- Weidu updated to v247
 
 Version 7
 - Russian translation by saigon1983 and Staylos

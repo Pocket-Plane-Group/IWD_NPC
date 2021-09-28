@@ -3,14 +3,41 @@ AUTHOR ~http://forums.pocketplane.net~
 
 ASK_EVERY_COMPONENT
 
-VERSION ~v7~
+VERSION ~v8~
 
-AUTO_TRA ~IWDNPC/%s~
+README ~iwdnpc/Readme-IWDNPC.txt~
 
-LANGUAGE ~English~ ~English~ ~IWDNPC/English/Setup-IWDNPC.tra~
-LANGUAGE ~Russian (Translated by saigon1983 and Staylos)~ ~Russian~ ~IWDNPC/Russian/Setup-IWDNPC.tra~
+AUTO_TRA ~IWDNPC/Language/%s~
+
+ALWAYS
+	/* Converts tra files to UTF-8 */
+	// No exception, everything needs to be converted
+	ACTION_DEFINE_ARRAY IWDNPCnoconvert BEGIN END
+
+	// any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
+	ACTION_DEFINE_ARRAY IWDNPCreload BEGIN Setup-IWDNPC END
+
+	LAF HANDLE_CHARSETS
+		INT_VAR
+			infer_charsets = 1
+		STR_VAR
+			tra_path = EVAL ~%MOD_FOLDER%/Language~
+			noconvert_array = IWDNPCnoconvert
+			reload_array = IWDNPCreload
+	END
+
+END
+
+LANGUAGE ~English~ ~English~ ~IWDNPC/Language/English/Setup-IWDNPC.tra~
+LANGUAGE ~Russian (Translated by saigon1983 and Staylos)~ ~Russian~ ~IWDNPC/Language/Russian/Setup-IWDNPC.tra~
+LANGUAGE ~Polish (Translated by Ril)~ ~Polish~ ~IWDNPC/Language/Polish/Setup-IWDNPC.tra~
 
 BEGIN @0
+DESIGNATED 0
+
+// Audio program locations for HANDLE_AUDIO
+OUTER_SPRINT ~oggdec_path~ ~iwdnpc/audio~
+OUTER_SPRINT ~sox_path~ ~iwdnpc/audio~
 
 // CamDawg's code for State.ids
 APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
@@ -440,26 +467,26 @@ SAY BIO @222
 
 COMPILE ~IWDNPC/Dialogue/O#Dump.d~
 COMPILE ~IWDNPC/Dialogue/ReplaceBG2.d~
-COMPILE ~IWDNPC/Dialogue/InterjectBG2.d~ USING ~IWDNPC/%s/Interjections.tra~
-COMPILE ~IWDNPC/Dialogue/O#StartBG2.d~ USING ~IWDNPC/%s/Dialogue.tra~
+COMPILE ~IWDNPC/Dialogue/InterjectBG2.d~ USING ~IWDNPC/Language/%s/Interjections.tra~
+COMPILE ~IWDNPC/Dialogue/O#StartBG2.d~ USING ~IWDNPC/Language/%s/Dialogue.tra~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~ar9100.are~ THEN BEGIN
 COMPILE ~IWDNPC/Dialogue/O#Dump1.d~
 COMPILE ~IWDNPC/Dialogue/ReplaceHoWBG2.d~
-COMPILE ~IWDNPC/Dialogue/InterjectHoWBG2.d~ USING ~IWDNPC/%s/InterjectionsHoW.tra~
+COMPILE ~IWDNPC/Dialogue/InterjectHoWBG2.d~ USING ~IWDNPC/Language/%s/InterjectionsHoW.tra~
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~ar9700.are~ THEN BEGIN
 COMPILE ~IWDNPC/Dialogue/O#Dump2.d~
 COMPILE ~IWDNPC/Dialogue/ReplaceTotLBG2.d~
-COMPILE ~IWDNPC/Dialogue/InterjectTotLBG2.d~ USING ~IWDNPC/%s/InterjectionsTotL.tra~
+COMPILE ~IWDNPC/Dialogue/InterjectTotLBG2.d~ USING ~IWDNPC/Language/%s/InterjectionsTotL.tra~
 END
 
-COMPILE ~IWDNPC/Scripts/O#HFix.baf~ USING ~IWDNPC/%s/Setup-IWDNPC.tra~
-COMPILE ~IWDNPC/Scripts/O#KFix.baf~ USING ~IWDNPC/%s/Setup-IWDNPC.tra~
-COMPILE ~IWDNPC/Scripts/O#NFix.baf~ USING ~IWDNPC/%s/Setup-IWDNPC.tra~
-COMPILE ~IWDNPC/Scripts/O#SFix.baf~ USING ~IWDNPC/%s/Setup-IWDNPC.tra~
-COMPILE ~IWDNPC/Scripts/O#TFix.baf~ USING ~IWDNPC/%s/Setup-IWDNPC.tra~
+COMPILE ~IWDNPC/Scripts/O#HFix.baf~ USING ~IWDNPC/Language/%s/Setup-IWDNPC.tra~
+COMPILE ~IWDNPC/Scripts/O#KFix.baf~ USING ~IWDNPC/Language/%s/Setup-IWDNPC.tra~
+COMPILE ~IWDNPC/Scripts/O#NFix.baf~ USING ~IWDNPC/Language/%s/Setup-IWDNPC.tra~
+COMPILE ~IWDNPC/Scripts/O#SFix.baf~ USING ~IWDNPC/Language/%s/Setup-IWDNPC.tra~
+COMPILE ~IWDNPC/Scripts/O#TFix.baf~ USING ~IWDNPC/Language/%s/Setup-IWDNPC.tra~
 
 EXTEND_TOP ~O#Holvir.bcs~ ~IWDNPC/Scripts/O#HFix2.baf~
 EXTEND_TOP ~O#Korin.bcs~  ~IWDNPC/Scripts/O#KFix2.baf~
@@ -484,8 +511,16 @@ UNLESS ~O#SEVERN~
 APPEND ~pdialog.2da~ ~O#TERI       O#TLEAVE           O#TERI            O#TERID        O#TLEAVE           O#TERI                O#TERID               O#TERI~
 UNLESS ~O#TERI~
 
-AT_NOW ~IWDNPC/Audio/AudioInstallBG2.bat~
-AT_UNINSTALL ~IWDNPC/Audio/AudioUninstallBG2.bat~
+// Install audio files
+LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/audio~ END
+LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/sounds/o#holvir~ END
+LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/sounds/o#korin~ END
+LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/sounds/o#nella~ END
+LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/sounds/o#severn~ END
+LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/sounds/o#teri~ END
+
+// AT_NOW ~IWDNPC/Audio/AudioInstallBG2.bat~
+// AT_UNINSTALL ~IWDNPC/Audio/AudioUninstallBG2.bat~
 
 END ELSE BEGIN
 
@@ -745,7 +780,7 @@ REPLACE o#tdum40 @212
 COMPILE ~IWDNPC/Dialogue/O#Dump.d~
 COMPILE ~IWDNPC/Dialogue/Replace.d~
 COMPILE ~IWDNPC/Dialogue/Interjections.d~
-COMPILE ~IWDNPC/Dialogue/O#StartIWD.d~ USING ~IWDNPC/%s/Dialogue.tra~
+COMPILE ~IWDNPC/Dialogue/O#StartIWD.d~ USING ~IWDNPC/Language/%s/Dialogue.tra~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~ar9100.are~ THEN BEGIN
 COMPILE ~IWDNPC/Dialogue/O#Dump1.d~
@@ -767,56 +802,78 @@ EXTEND_TOP ~O#Teri.bcs~   ~IWDNPC/Scripts/O#TFix1.baf~
 
 EXTEND_TOP ~AR1006.bcs~ ~IWDNPC/Scripts/AR1006IWD.baf~
 
-AT_NOW ~IWDNPC/Audio/AudioInstall.bat~
-AT_UNINSTALL ~IWDNPC/Audio/AudioUninstall.bat~
+ACTION_IF ("%WEIDU_OS%" STRING_EQUAL_CASE ~WIN32~ = 1) THEN BEGIN // Windows
+	AT_NOW ~IWDNPC/Audio/AudioInstall.bat~
+	AT_UNINSTALL ~IWDNPC/Audio/AudioUninstall.bat~
+END
+ACTION_IF ("%WEIDU_OS%" STRING_EQUAL_CASE ~OSX~ = 1) THEN BEGIN // OSX
+	AT_NOW ~IWDNPC/Audio/iwdnpc-installaudio-osx.sh~
+	AT_UNINSTALL ~IWDNPC/Audio/iwdnpc-removeaudio-osx.sh~
+END
 
 END
 
 COMPILE ~IWDNPC/Dialogue/Player.d~
 
-AT_INTERACTIVE_EXIT ~VIEW IWDNPC/Readme-IWDNPC.txt~
+//AT_INTERACTIVE_EXIT ~VIEW IWDNPC/Readme-IWDNPC.txt~
 
 PRINT @1
 
 BEGIN @2
+DESIGNATED 1
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~kitlist.2da~ @245
 
 COPY ~IWDNPC/Characters/O#KorinC.chr~ ~Characters/O#Korin.chr~
 
 BEGIN @3
+DESIGNATED 2
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @4
 REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~kitlist.2da~ @245
 
 COPY ~IWDNPC/Characters/O#NellaC.chr~ ~Characters/O#Nella.chr~
 
 BEGIN @5
+DESIGNATED 3
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @4
 
 COPY ~IWDNPC/Characters/O#NellaD.chr~ ~Characters/O#Nella.chr~
 
 BEGIN @6
+DESIGNATED 4
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @7
 REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~kitlist.2da~ @245
 
 COPY ~IWDNPC/Characters/O#SeverF.chr~ ~Characters/O#Severn.chr~
 
 BEGIN @8
+DESIGNATED 5
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @7
 
 COPY ~IWDNPC/Characters/O#SeverM.chr~ ~Characters/O#Severn.chr~
 
 BEGIN @9
+DESIGNATED 6
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @10
 REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~kitlist.2da~ @245
 
 COPY ~IWDNPC/Characters/O#TeriT.chr~ ~Characters/O#Teri.chr~
 
 BEGIN @11
+DESIGNATED 7
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @10
 
 COPY ~IWDNPC/Characters/O#TeriFM.chr~ ~Characters/O#Teri.chr~
 
 BEGIN @12
+DESIGNATED 8
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @10
 
 COPY ~IWDNPC/Characters/O#TeriTM.chr~ ~Characters/O#Teri.chr~
@@ -824,6 +881,8 @@ COPY ~IWDNPC/Characters/O#TeriTM.chr~ ~Characters/O#Teri.chr~
 // Alternate class for Holvir
 
 BEGIN @223
+DESIGNATED 9
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @242
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kitlist.2da~ @246
 
@@ -865,6 +924,8 @@ SAY SELECT_RARE2 @43
 SAY BIO @218
 
 BEGIN @224
+DESIGNATED 10
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @242
 
 COPY ~IWDNPC/Characters/O#HolviI.cre~ ~override/O#Holvir.cre~
@@ -905,6 +966,8 @@ SAY SELECT_RARE2 @43
 SAY BIO @218
 
 BEGIN @225
+DESIGNATED 11
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @242
 
 COPY ~IWDNPC/Characters/O#HolviU.cre~ ~override/O#Holvir.cre~
@@ -947,6 +1010,8 @@ SAY BIO @218
 // Alternate class for Korin
 
 BEGIN @226
+DESIGNATED 12
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @247
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kitlist.2da~ @246
 
@@ -988,6 +1053,8 @@ SAY SELECT_RARE2 @83
 SAY BIO @219
 
 BEGIN @227
+DESIGNATED 13
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @247
 
 COPY ~IWDNPC/Characters/O#KorinB.cre~ ~override/O#Korin.cre~
@@ -1028,6 +1095,8 @@ SAY SELECT_RARE2 @83
 SAY BIO @219
 
 BEGIN @228
+DESIGNATED 14
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @247
 
 COPY ~IWDNPC/Characters/O#KorinS.cre~ ~override/O#Korin.cre~
@@ -1068,6 +1137,8 @@ SAY SELECT_RARE2 @83
 SAY BIO @219
 
 BEGIN @241
+DESIGNATED 15
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @247
 
 COPY ~IWDNPC/Characters/O#KorinC.cre~ ~override/O#Korin.cre~
@@ -1110,6 +1181,8 @@ SAY BIO @219
 // Alternate class for Nella
 
 BEGIN @229
+DESIGNATED 16
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @249
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kitlist.2da~ @246
 
@@ -1151,6 +1224,8 @@ SAY SELECT_RARE2 @123
 SAY BIO @220
 
 BEGIN @230
+DESIGNATED 17
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @249
 
 COPY ~IWDNPC/Characters/O#NellaK.cre~ ~override/O#Nella.cre~
@@ -1191,6 +1266,8 @@ SAY SELECT_RARE2 @123
 SAY BIO @220
 
 BEGIN @231
+DESIGNATED 18
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @249
 
 COPY ~IWDNPC/Characters/O#NellaW.cre~ ~override/O#Nella.cre~
@@ -1231,6 +1308,8 @@ SAY SELECT_RARE2 @123
 SAY BIO @220
 
 BEGIN @3
+DESIGNATED 19
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @249
 
 COPY ~IWDNPC/Characters/O#NellaC.cre~ ~override/O#Nella.cre~
@@ -1271,6 +1350,8 @@ SAY SELECT_RARE2 @123
 SAY BIO @220
 
 BEGIN @5
+DESIGNATED 20
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @249
 
 COPY ~IWDNPC/Characters/O#NellaD.cre~ ~override/O#Nella.cre~
@@ -1311,6 +1392,8 @@ SAY SELECT_RARE2 @123
 SAY BIO @220
 
 BEGIN @232
+DESIGNATED 21
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @249
 
 COPY ~IWDNPC/Characters/O#NellaM.cre~ ~override/O#Nella.cre~
@@ -1353,6 +1436,8 @@ SAY BIO @220
 // Alternate class for Severn
 
 BEGIN @233
+DESIGNATED 22
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @250
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kitlist.2da~ @246
 
@@ -1394,6 +1479,8 @@ SAY SELECT_RARE2 @163
 SAY BIO @221
 
 BEGIN @234
+DESIGNATED 23
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @250
 
 COPY ~IWDNPC/Characters/O#SeverJ.cre~ ~override/O#Severn.cre~
@@ -1434,6 +1521,8 @@ SAY SELECT_RARE2 @163
 SAY BIO @221
 
 BEGIN @235
+DESIGNATED 24
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @250
 
 COPY ~IWDNPC/Characters/O#SeveSk.cre~ ~override/O#Severn.cre~
@@ -1474,6 +1563,8 @@ SAY SELECT_RARE2 @163
 SAY BIO @221
 
 BEGIN @6
+DESIGNATED 25
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @250
 
 COPY ~IWDNPC/Characters/O#SeverF.cre~ ~override/O#Severn.cre~
@@ -1514,6 +1605,8 @@ SAY SELECT_RARE2 @163
 SAY BIO @221
 
 BEGIN @236
+DESIGNATED 26
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @250
 
 COPY ~IWDNPC/Characters/O#SeveSo.cre~ ~override/O#Severn.cre~
@@ -1554,6 +1647,8 @@ SAY SELECT_RARE2 @163
 SAY BIO @221
 
 BEGIN @8
+DESIGNATED 27
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @250
 
 COPY ~IWDNPC/Characters/O#SeverM.cre~ ~override/O#Severn.cre~
@@ -1594,6 +1689,8 @@ SAY SELECT_RARE2 @163
 SAY BIO @221
 
 BEGIN @237
+DESIGNATED 28
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @250
 
 COPY ~IWDNPC/Characters/O#SeverW.cre~ ~override/O#Severn.cre~
@@ -1636,6 +1733,8 @@ SAY BIO @221
 // Alternate class for Teri
 
 BEGIN @238
+DESIGNATED 29
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @251
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~kitlist.2da~ @246
 
@@ -1677,6 +1776,8 @@ SAY SELECT_RARE2 @203
 SAY BIO @222
 
 BEGIN @239
+DESIGNATED 30
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @251
 
 COPY ~IWDNPC/Characters/O#TeriB.cre~ ~override/O#Teri.cre~
@@ -1717,6 +1818,8 @@ SAY SELECT_RARE2 @203
 SAY BIO @222
 
 BEGIN @240
+DESIGNATED 31
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @251
 
 COPY ~IWDNPC/Characters/O#TeriS.cre~ ~override/O#Teri.cre~
@@ -1757,6 +1860,8 @@ SAY SELECT_RARE2 @203
 SAY BIO @222
 
 BEGIN @9
+DESIGNATED 32
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @251
 
 COPY ~IWDNPC/Characters/O#TeriT.cre~ ~override/O#Teri.cre~
@@ -1797,6 +1902,8 @@ SAY SELECT_RARE2 @203
 SAY BIO @222
 
 BEGIN @11
+DESIGNATED 33
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @251
 
 COPY ~IWDNPC/Characters/O#TeriFM.cre~ ~override/O#Teri.cre~
@@ -1837,6 +1944,8 @@ SAY SELECT_RARE2 @203
 SAY BIO @222
 
 BEGIN @12
+DESIGNATED 34
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-iwdnpc.TP2~ "0") @252 
 SUBCOMPONENT @251
 
 COPY ~IWDNPC/Characters/O#TeriTM.cre~ ~override/O#Teri.cre~
