@@ -507,6 +507,14 @@ UNLESS ~O#SEVERN~
 APPEND ~pdialog.2da~ ~O#TERI       O#TLEAVE           O#TERI            O#TERID        O#TLEAVE           O#TERI                O#TERID               O#TERI~
 UNLESS ~O#TERI~
 
+// Install audio files
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/audio~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#holvir~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#korin~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#nella~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#severn~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#teri~ END
+
 END ELSE BEGIN
 
 // IWD only
@@ -787,17 +795,17 @@ EXTEND_TOP ~O#Teri.bcs~   ~IWDNPC/Scripts/O#TFix1.baf~
 
 EXTEND_TOP ~AR1006.bcs~ ~IWDNPC/Scripts/AR1006IWD.baf~
 
+// Install audio files
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/audio~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#holvir~ output_path = ~sounds/o#holvir~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#korin~  output_path = ~sounds/o#korin~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#nella~  output_path = ~sounds/o#nella~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#severn~ output_path = ~sounds/o#severn~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#teri~   output_path = ~sounds/o#teri~ END
+
 END
 
 COMPILE ~IWDNPC/Dialogue/Player.d~
-
-// Install audio files
-LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/audio~ END
-LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#holvir~ END
-LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#korin~ END
-LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#nella~ END
-LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#severn~ END
-LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#teri~ END
 
 //AT_INTERACTIVE_EXIT ~VIEW IWDNPC/Readme-IWDNPC.txt~
 
