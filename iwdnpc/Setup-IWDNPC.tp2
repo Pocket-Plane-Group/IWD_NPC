@@ -35,10 +35,6 @@ LANGUAGE ~Polish (Translated by Ril)~ ~Polish~ ~IWDNPC/Language/Polish/Setup-IWD
 BEGIN @0
 DESIGNATED 0
 
-// Audio program locations for HANDLE_AUDIO
-OUTER_SPRINT ~oggdec_path~ ~iwdnpc/audio~
-OUTER_SPRINT ~sox_path~ ~iwdnpc/audio~
-
 // CamDawg's code for State.ids
 APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
 UNLESS ~CD_STATE_NOTVALID~
@@ -512,15 +508,12 @@ APPEND ~pdialog.2da~ ~O#TERI       O#TLEAVE           O#TERI            O#TERID 
 UNLESS ~O#TERI~
 
 // Install audio files
-LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/audio~ END
-LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/sounds/o#holvir~ END
-LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/sounds/o#korin~ END
-LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/sounds/o#nella~ END
-LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/sounds/o#severn~ END
-LAF HANDLE_AUDIO STR_VAR audio_path = ~iwdnpc/sounds/o#teri~ END
-
-// AT_NOW ~IWDNPC/Audio/AudioInstallBG2.bat~
-// AT_UNINSTALL ~IWDNPC/Audio/AudioUninstallBG2.bat~
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/audio~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#holvir~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#korin~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#nella~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#severn~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#teri~ END
 
 END ELSE BEGIN
 
@@ -802,14 +795,13 @@ EXTEND_TOP ~O#Teri.bcs~   ~IWDNPC/Scripts/O#TFix1.baf~
 
 EXTEND_TOP ~AR1006.bcs~ ~IWDNPC/Scripts/AR1006IWD.baf~
 
-ACTION_IF ("%WEIDU_OS%" STRING_EQUAL_CASE ~WIN32~ = 1) THEN BEGIN // Windows
-	AT_NOW ~IWDNPC/Audio/AudioInstall.bat~
-	AT_UNINSTALL ~IWDNPC/Audio/AudioUninstall.bat~
-END
-ACTION_IF ("%WEIDU_OS%" STRING_EQUAL_CASE ~OSX~ = 1) THEN BEGIN // OSX
-	AT_NOW ~IWDNPC/Audio/iwdnpc-installaudio-osx.sh~
-	AT_UNINSTALL ~IWDNPC/Audio/iwdnpc-removeaudio-osx.sh~
-END
+// Install audio files
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/audio~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#holvir~ output_path = ~sounds/o#holvir~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#korin~  output_path = ~sounds/o#korin~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#nella~  output_path = ~sounds/o#nella~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#severn~ output_path = ~sounds/o#severn~ END
+LAF HANDLE_AUDIO STR_VAR oggdec_path = ~iwdnpc/audio~ sox_path = ~iwdnpc/audio~ audio_path = ~iwdnpc/sounds/o#teri~   output_path = ~sounds/o#teri~ END
 
 END
 
