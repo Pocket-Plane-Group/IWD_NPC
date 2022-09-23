@@ -1,5 +1,5 @@
 		     Icewind Dale NPCs MOD for Icewind Dale
-				  Version 8
+				  Version 9
 			 A Pocket Plane Group Project
 			  http://www.pocketplane.net
 
@@ -402,6 +402,10 @@ winLAME					http://winlame.sourceforge.net
 -------------------
 6. Version History
 -------------------
+
+Version 9, CamDawg
+- Audio wasn't installing properly for original IWD
+- Weidu updated to v249
 
 Version 8 by morgan & jastey
 - Polish translation by Ril
